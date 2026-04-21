@@ -1,0 +1,33 @@
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.footer{
+    text-align: center;
+    background: linear-gradient(270deg, rgba(254, 55, 55, 0.25) -32.31%, rgba(87, 133, 255, 0.25) 63.97%, rgba(102, 126, 237, 0.25) 191.94%);
+    background-image: linear-gradient(to top left, #ffb800, #9225ff);
+    width:100%;
+    font-family: 'DM Sans';
+    font-weight: 700;
+    padding: 3px;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+    margin-top: 5px;
+}
+
+.start{
+color:#ffb800;
+font-family: 'Comic Sans MS';
+}
+
+.end{
+color:#9225ff;
+font-family: 'Comic Sans MS';
+}
+
+.suspense{
+    flex-grow: 1;
+}

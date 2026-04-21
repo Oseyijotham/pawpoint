@@ -1,0 +1,1994 @@
+[
+  {
+    "country": "AF",
+    "counts": {
+      "places": 13733,
+      "brands": 10
+    },
+    "full_name": "Afghanistan"
+  },
+  {
+    "country": "AL",
+    "counts": {
+      "places": 34676,
+      "brands": 171
+    },
+    "full_name": "Albania"
+  },
+  {
+    "country": "DZ",
+    "counts": {
+      "places": 106812,
+      "brands": 232
+    },
+    "full_name": "Algeria"
+  },
+  {
+    "country": "AS",
+    "counts": {
+      "places": 654,
+      "brands": 3
+    },
+    "full_name": "American Samoa"
+  },
+  {
+    "country": "AD",
+    "counts": {
+      "places": 4217,
+      "brands": 80
+    },
+    "full_name": "Andorra"
+  },
+  {
+    "country": "AO",
+    "counts": {
+      "places": 19632,
+      "brands": 59
+    },
+    "full_name": "Angola"
+  },
+  {
+    "country": "AI",
+    "counts": {
+      "places": 510,
+      "brands": 3
+    },
+    "full_name": "Anguilla"
+  },
+  {
+    "country": "AQ",
+    "counts": {
+      "places": 148,
+      "brands": 1
+    },
+    "full_name": "Antarctica"
+  },
+  {
+    "country": "AG",
+    "counts": {
+      "places": 2037,
+      "brands": 22
+    },
+    "full_name": "Antigua and Barbuda"
+  },
+  {
+    "country": "AR",
+    "counts": {
+      "places": 820302,
+      "brands": 2240
+    },
+    "full_name": "Argentina"
+  },
+  {
+    "country": "AM",
+    "counts": {
+      "places": 23846,
+      "brands": 201
+    },
+    "full_name": "Armenia"
+  },
+  {
+    "country": "AW",
+    "counts": {
+      "places": 4933,
+      "brands": 109
+    },
+    "full_name": "Aruba"
+  },
+  {
+    "country": "AU",
+    "counts": {
+      "places": 1110979,
+      "brands": 3882
+    },
+    "full_name": "Australia"
+  },
+  {
+    "country": "AT",
+    "counts": {
+      "places": 312117,
+      "brands": 1242
+    },
+    "full_name": "Austria"
+  },
+  {
+    "country": "AZ",
+    "counts": {
+      "places": 30769,
+      "brands": 241
+    },
+    "full_name": "Azerbaijan"
+  },
+  {
+    "country": "BS",
+    "counts": {
+      "places": 12236,
+      "brands": 176
+    },
+    "full_name": "Bahamas"
+  },
+  {
+    "country": "BH",
+    "counts": {
+      "places": 13903,
+      "brands": 312
+    },
+    "full_name": "Bahrain"
+  },
+  {
+    "country": "BD",
+    "counts": {
+      "places": 230315,
+      "brands": 473
+    },
+    "full_name": "Bangladesh"
+  },
+  {
+    "country": "BB",
+    "counts": {
+      "places": 12734,
+      "brands": 82
+    },
+    "full_name": "Barbados"
+  },
+  {
+    "country": "BY",
+    "counts": {
+      "places": 39475,
+      "brands": 322
+    },
+    "full_name": "Belarus"
+  },
+  {
+    "country": "BE",
+    "counts": {
+      "places": 434083,
+      "brands": 1903
+    },
+    "full_name": "Belgium"
+  },
+  {
+    "country": "BZ",
+    "counts": {
+      "places": 8265,
+      "brands": 41
+    },
+    "full_name": "Belize"
+  },
+  {
+    "country": "BJ",
+    "counts": {
+      "places": 5263,
+      "brands": 12
+    },
+    "full_name": "Benin"
+  },
+  {
+    "country": "BM",
+    "counts": {
+      "places": 1790,
+      "brands": 15
+    },
+    "full_name": "Bermuda"
+  },
+  {
+    "country": "BT",
+    "counts": {
+      "places": 2827,
+      "brands": 14
+    },
+    "full_name": "Bhutan"
+  },
+  {
+    "country": "BO",
+    "counts": {
+      "places": 99525,
+      "brands": 549
+    },
+    "full_name": "Bolivia, Plurinational State of"
+  },
+  {
+    "country": "BQ",
+    "counts": {
+      "places": 1485,
+      "brands": 12
+    },
+    "full_name": "Bonaire, Sint Eustatius and Saba"
+  },
+  {
+    "country": "BA",
+    "counts": {
+      "places": 53314,
+      "brands": 215
+    },
+    "full_name": "Bosnia and Herzegovina"
+  },
+  {
+    "country": "BW",
+    "counts": {
+      "places": 11390,
+      "brands": 113
+    },
+    "full_name": "Botswana"
+  },
+  {
+    "country": "BR",
+    "counts": {
+      "places": 5127453,
+      "brands": 7167
+    },
+    "full_name": "Brazil"
+  },
+  {
+    "country": "IO",
+    "counts": {
+      "places": 7,
+      "brands": 0
+    },
+    "full_name": "British Indian Ocean Territory"
+  },
+  {
+    "country": "BN",
+    "counts": {
+      "places": 9219,
+      "brands": 66
+    },
+    "full_name": "Brunei Darussalam"
+  },
+  {
+    "country": "BG",
+    "counts": {
+      "places": 156164,
+      "brands": 721
+    },
+    "full_name": "Bulgaria"
+  },
+  {
+    "country": "BF",
+    "counts": {
+      "places": 6672,
+      "brands": 15
+    },
+    "full_name": "Burkina Faso"
+  },
+  {
+    "country": "BI",
+    "counts": {
+      "places": 2505,
+      "brands": 3
+    },
+    "full_name": "Burundi"
+  },
+  {
+    "country": "CV",
+    "counts": {
+      "places": 3428,
+      "brands": 11
+    },
+    "full_name": "Cabo Verde"
+  },
+  {
+    "country": "KH",
+    "counts": {
+      "places": 90278,
+      "brands": 369
+    },
+    "full_name": "Cambodia"
+  },
+  {
+    "country": "CM",
+    "counts": {
+      "places": 16248,
+      "brands": 27
+    },
+    "full_name": "Cameroon"
+  },
+  {
+    "country": "CA",
+    "counts": {
+      "places": 1390174,
+      "brands": 5114
+    },
+    "full_name": "Canada"
+  },
+  {
+    "country": "KY",
+    "counts": {
+      "places": 3078,
+      "brands": 48
+    },
+    "full_name": "Cayman Islands"
+  },
+  {
+    "country": "CF",
+    "counts": {
+      "places": 2645,
+      "brands": 2
+    },
+    "full_name": "Central African Republic"
+  },
+  {
+    "country": "TD",
+    "counts": {
+      "places": 971,
+      "brands": 4
+    },
+    "full_name": "Chad"
+  },
+  {
+    "country": "CL",
+    "counts": {
+      "places": 344983,
+      "brands": 1038
+    },
+    "full_name": "Chile"
+  },
+  {
+    "country": "CN",
+    "counts": {
+      "places": 91123,
+      "brands": 302
+    },
+    "full_name": "China"
+  },
+  {
+    "country": "CX",
+    "counts": {
+      "places": 28,
+      "brands": 0
+    },
+    "full_name": "Christmas Island"
+  },
+  {
+    "country": "CC",
+    "counts": {
+      "places": 109,
+      "brands": 0
+    },
+    "full_name": "Cocos (Keeling) Islands"
+  },
+  {
+    "country": "CO",
+    "counts": {
+      "places": 573250,
+      "brands": 1838
+    },
+    "full_name": "Colombia"
+  },
+  {
+    "country": "KM",
+    "counts": {
+      "places": 372,
+      "brands": 1
+    },
+    "full_name": "Comoros"
+  },
+  {
+    "country": "CG",
+    "counts": {
+      "places": 3880,
+      "brands": 17
+    },
+    "full_name": "Congo"
+  },
+  {
+    "country": "CD",
+    "counts": {
+      "places": 17060,
+      "brands": 36
+    },
+    "full_name": "Congo, The Democratic Republic of the"
+  },
+  {
+    "country": "CK",
+    "counts": {
+      "places": 646,
+      "brands": 4
+    },
+    "full_name": "Cook Islands"
+  },
+  {
+    "country": "CR",
+    "counts": {
+      "places": 113410,
+      "brands": 541
+    },
+    "full_name": "Costa Rica"
+  },
+  {
+    "country": "HR",
+    "counts": {
+      "places": 130805,
+      "brands": 449
+    },
+    "full_name": "Croatia"
+  },
+  {
+    "country": "CU",
+    "counts": {
+      "places": 16879,
+      "brands": 19
+    },
+    "full_name": "Cuba"
+  },
+  {
+    "country": "CW",
+    "counts": {
+      "places": 4266,
+      "brands": 58
+    },
+    "full_name": "Curaçao"
+  },
+  {
+    "country": "CY",
+    "counts": {
+      "places": 52269,
+      "brands": 410
+    },
+    "full_name": "Cyprus"
+  },
+  {
+    "country": "CZ",
+    "counts": {
+      "places": 299314,
+      "brands": 960
+    },
+    "full_name": "Czechia"
+  },
+  {
+    "country": "CI",
+    "counts": {
+      "places": 21732,
+      "brands": 80
+    },
+    "full_name": "Côte d'Ivoire"
+  },
+  {
+    "country": "DK",
+    "counts": {
+      "places": 227962,
+      "brands": 944
+    },
+    "full_name": "Denmark"
+  },
+  {
+    "country": "DJ",
+    "counts": {
+      "places": 994,
+      "brands": 7
+    },
+    "full_name": "Djibouti"
+  },
+  {
+    "country": "DM",
+    "counts": {
+      "places": 792,
+      "brands": 7
+    },
+    "full_name": "Dominica"
+  },
+  {
+    "country": "DO",
+    "counts": {
+      "places": 76743,
+      "brands": 328
+    },
+    "full_name": "Dominican Republic"
+  },
+  {
+    "country": "EC",
+    "counts": {
+      "places": 224963,
+      "brands": 935
+    },
+    "full_name": "Ecuador"
+  },
+  {
+    "country": "EG",
+    "counts": {
+      "places": 280682,
+      "brands": 1197
+    },
+    "full_name": "Egypt"
+  },
+  {
+    "country": "SV",
+    "counts": {
+      "places": 53493,
+      "brands": 316
+    },
+    "full_name": "El Salvador"
+  },
+  {
+    "country": "GQ",
+    "counts": {
+      "places": 499,
+      "brands": 5
+    },
+    "full_name": "Equatorial Guinea"
+  },
+  {
+    "country": "ER",
+    "counts": {
+      "places": 692,
+      "brands": 1
+    },
+    "full_name": "Eritrea"
+  },
+  {
+    "country": "EE",
+    "counts": {
+      "places": 47077,
+      "brands": 273
+    },
+    "full_name": "Estonia"
+  },
+  {
+    "country": "SZ",
+    "counts": {
+      "places": 2663,
+      "brands": 53
+    },
+    "full_name": "Eswatini"
+  },
+  {
+    "country": "ET",
+    "counts": {
+      "places": 10341,
+      "brands": 20
+    },
+    "full_name": "Ethiopia"
+  },
+  {
+    "country": "FK",
+    "counts": {
+      "places": 324,
+      "brands": 0
+    },
+    "full_name": "Falkland Islands (Malvinas)"
+  },
+  {
+    "country": "FO",
+    "counts": {
+      "places": 2072,
+      "brands": 21
+    },
+    "full_name": "Faroe Islands"
+  },
+  {
+    "country": "FJ",
+    "counts": {
+      "places": 6137,
+      "brands": 43
+    },
+    "full_name": "Fiji"
+  },
+  {
+    "country": "FI",
+    "counts": {
+      "places": 204353,
+      "brands": 582
+    },
+    "full_name": "Finland"
+  },
+  {
+    "country": "FR",
+    "counts": {
+      "places": 1834343,
+      "brands": 4323
+    },
+    "full_name": "France"
+  },
+  {
+    "country": "GF",
+    "counts": {
+      "places": 3121,
+      "brands": 74
+    },
+    "full_name": "French Guiana"
+  },
+  {
+    "country": "PF",
+    "counts": {
+      "places": 4965,
+      "brands": 45
+    },
+    "full_name": "French Polynesia"
+  },
+  {
+    "country": "TF",
+    "counts": {
+      "places": 31,
+      "brands": 0
+    },
+    "full_name": "French Southern Territories"
+  },
+  {
+    "country": "GA",
+    "counts": {
+      "places": 3534,
+      "brands": 19
+    },
+    "full_name": "Gabon"
+  },
+  {
+    "country": "GM",
+    "counts": {
+      "places": 1622,
+      "brands": 6
+    },
+    "full_name": "Gambia"
+  },
+  {
+    "country": "GE",
+    "counts": {
+      "places": 44052,
+      "brands": 345
+    },
+    "full_name": "Georgia"
+  },
+  {
+    "country": "DE",
+    "counts": {
+      "places": 2383516,
+      "brands": 4339
+    },
+    "full_name": "Germany"
+  },
+  {
+    "country": "GH",
+    "counts": {
+      "places": 32848,
+      "brands": 72
+    },
+    "full_name": "Ghana"
+  },
+  {
+    "country": "GI",
+    "counts": {
+      "places": 1673,
+      "brands": 37
+    },
+    "full_name": "Gibraltar"
+  },
+  {
+    "country": "GR",
+    "counts": {
+      "places": 407633,
+      "brands": 1704
+    },
+    "full_name": "Greece"
+  },
+  {
+    "country": "GL",
+    "counts": {
+      "places": 1122,
+      "brands": 9
+    },
+    "full_name": "Greenland"
+  },
+  {
+    "country": "GD",
+    "counts": {
+      "places": 1349,
+      "brands": 17
+    },
+    "full_name": "Grenada"
+  },
+  {
+    "country": "GP",
+    "counts": {
+      "places": 8517,
+      "brands": 149
+    },
+    "full_name": "Guadeloupe"
+  },
+  {
+    "country": "GU",
+    "counts": {
+      "places": 3477,
+      "brands": 105
+    },
+    "full_name": "Guam"
+  },
+  {
+    "country": "GT",
+    "counts": {
+      "places": 92605,
+      "brands": 582
+    },
+    "full_name": "Guatemala"
+  },
+  {
+    "country": "GG",
+    "counts": {
+      "places": 1562,
+      "brands": 35
+    },
+    "full_name": "Guernsey"
+  },
+  {
+    "country": "GN",
+    "counts": {
+      "places": 3986,
+      "brands": 8
+    },
+    "full_name": "Guinea"
+  },
+  {
+    "country": "GW",
+    "counts": {
+      "places": 534,
+      "brands": 1
+    },
+    "full_name": "Guinea-Bissau"
+  },
+  {
+    "country": "GY",
+    "counts": {
+      "places": 6331,
+      "brands": 43
+    },
+    "full_name": "Guyana"
+  },
+  {
+    "country": "HT",
+    "counts": {
+      "places": 7118,
+      "brands": 37
+    },
+    "full_name": "Haiti"
+  },
+  {
+    "country": "VA",
+    "counts": {
+      "places": 78,
+      "brands": 0
+    },
+    "full_name": "Holy See (Vatican City State)"
+  },
+  {
+    "country": "HN",
+    "counts": {
+      "places": 44674,
+      "brands": 279
+    },
+    "full_name": "Honduras"
+  },
+  {
+    "country": "HK",
+    "counts": {
+      "places": 127492,
+      "brands": 1184
+    },
+    "full_name": "Hong Kong"
+  },
+  {
+    "country": "HU",
+    "counts": {
+      "places": 273339,
+      "brands": 697
+    },
+    "full_name": "Hungary"
+  },
+  {
+    "country": "IS",
+    "counts": {
+      "places": 18852,
+      "brands": 137
+    },
+    "full_name": "Iceland"
+  },
+  {
+    "country": "IN",
+    "counts": {
+      "places": 3967339,
+      "brands": 4586
+    },
+    "full_name": "India"
+  },
+  {
+    "country": "ID",
+    "counts": {
+      "places": 1910544,
+      "brands": 1376
+    },
+    "full_name": "Indonesia"
+  },
+  {
+    "country": "IR",
+    "counts": {
+      "places": 34505,
+      "brands": 20
+    },
+    "full_name": "Iran, Islamic Republic of"
+  },
+  {
+    "country": "IQ",
+    "counts": {
+      "places": 54745,
+      "brands": 126
+    },
+    "full_name": "Iraq"
+  },
+  {
+    "country": "IE",
+    "counts": {
+      "places": 139726,
+      "brands": 851
+    },
+    "full_name": "Ireland"
+  },
+  {
+    "country": "IM",
+    "counts": {
+      "places": 3229,
+      "brands": 50
+    },
+    "full_name": "Isle of Man"
+  },
+  {
+    "country": "IL",
+    "counts": {
+      "places": 157737,
+      "brands": 706
+    },
+    "full_name": "Israel"
+  },
+  {
+    "country": "IT",
+    "counts": {
+      "places": 2207980,
+      "brands": 5184
+    },
+    "full_name": "Italy"
+  },
+  {
+    "country": "JM",
+    "counts": {
+      "places": 14793,
+      "brands": 94
+    },
+    "full_name": "Jamaica"
+  },
+  {
+    "country": "JP",
+    "counts": {
+      "places": 2248728,
+      "brands": 1498
+    },
+    "full_name": "Japan"
+  },
+  {
+    "country": "JE",
+    "counts": {
+      "places": 3126,
+      "brands": 76
+    },
+    "full_name": "Jersey"
+  },
+  {
+    "country": "JO",
+    "counts": {
+      "places": 66439,
+      "brands": 328
+    },
+    "full_name": "Jordan"
+  },
+  {
+    "country": "KZ",
+    "counts": {
+      "places": 47149,
+      "brands": 332
+    },
+    "full_name": "Kazakhstan"
+  },
+  {
+    "country": "KE",
+    "counts": {
+      "places": 87999,
+      "brands": 231
+    },
+    "full_name": "Kenya"
+  },
+  {
+    "country": "KI",
+    "counts": {
+      "places": 165,
+      "brands": 0
+    },
+    "full_name": "Kiribati"
+  },
+  {
+    "country": "KP",
+    "counts": {
+      "places": 787,
+      "brands": 0
+    },
+    "full_name": "Korea, Democratic People's Republic of"
+  },
+  {
+    "country": "KR",
+    "counts": {
+      "places": 456755,
+      "brands": 462
+    },
+    "full_name": "Korea, Republic of"
+  },
+  {
+    "country": "XK",
+    "counts": {
+      "places": 18748,
+      "brands": 135
+    },
+    "full_name": "Kosovo"
+  },
+  {
+    "country": "KW",
+    "counts": {
+      "places": 24905,
+      "brands": 457
+    },
+    "full_name": "Kuwait"
+  },
+  {
+    "country": "KG",
+    "counts": {
+      "places": 7233,
+      "brands": 39
+    },
+    "full_name": "Kyrgyzstan"
+  },
+  {
+    "country": "LA",
+    "counts": {
+      "places": 25534,
+      "brands": 60
+    },
+    "full_name": "Lao People's Democratic Republic"
+  },
+  {
+    "country": "LV",
+    "counts": {
+      "places": 56691,
+      "brands": 321
+    },
+    "full_name": "Latvia"
+  },
+  {
+    "country": "LB",
+    "counts": {
+      "places": 50884,
+      "brands": 382
+    },
+    "full_name": "Lebanon"
+  },
+  {
+    "country": "LS",
+    "counts": {
+      "places": 2786,
+      "brands": 42
+    },
+    "full_name": "Lesotho"
+  },
+  {
+    "country": "LR",
+    "counts": {
+      "places": 3188,
+      "brands": 4
+    },
+    "full_name": "Liberia"
+  },
+  {
+    "country": "LY",
+    "counts": {
+      "places": 22917,
+      "brands": 31
+    },
+    "full_name": "Libya"
+  },
+  {
+    "country": "LI",
+    "counts": {
+      "places": 2185,
+      "brands": 28
+    },
+    "full_name": "Liechtenstein"
+  },
+  {
+    "country": "LT",
+    "counts": {
+      "places": 66497,
+      "brands": 412
+    },
+    "full_name": "Lithuania"
+  },
+  {
+    "country": "LU",
+    "counts": {
+      "places": 24607,
+      "brands": 364
+    },
+    "full_name": "Luxembourg"
+  },
+  {
+    "country": "MO",
+    "counts": {
+      "places": 9733,
+      "brands": 180
+    },
+    "full_name": "Macao"
+  },
+  {
+    "country": "MG",
+    "counts": {
+      "places": 10441,
+      "brands": 17
+    },
+    "full_name": "Madagascar"
+  },
+  {
+    "country": "MW",
+    "counts": {
+      "places": 6538,
+      "brands": 30
+    },
+    "full_name": "Malawi"
+  },
+  {
+    "country": "MY",
+    "counts": {
+      "places": 790352,
+      "brands": 2139
+    },
+    "full_name": "Malaysia"
+  },
+  {
+    "country": "MV",
+    "counts": {
+      "places": 8947,
+      "brands": 50
+    },
+    "full_name": "Maldives"
+  },
+  {
+    "country": "ML",
+    "counts": {
+      "places": 3067,
+      "brands": 6
+    },
+    "full_name": "Mali"
+  },
+  {
+    "country": "MT",
+    "counts": {
+      "places": 21330,
+      "brands": 220
+    },
+    "full_name": "Malta"
+  },
+  {
+    "country": "MH",
+    "counts": {
+      "places": 170,
+      "brands": 1
+    },
+    "full_name": "Marshall Islands"
+  },
+  {
+    "country": "MQ",
+    "counts": {
+      "places": 7504,
+      "brands": 169
+    },
+    "full_name": "Martinique"
+  },
+  {
+    "country": "MR",
+    "counts": {
+      "places": 1332,
+      "brands": 5
+    },
+    "full_name": "Mauritania"
+  },
+  {
+    "country": "MU",
+    "counts": {
+      "places": 17586,
+      "brands": 149
+    },
+    "full_name": "Mauritius"
+  },
+  {
+    "country": "YT",
+    "counts": {
+      "places": 1678,
+      "brands": 28
+    },
+    "full_name": "Mayotte"
+  },
+  {
+    "country": "MX",
+    "counts": {
+      "places": 2848443,
+      "brands": 6413
+    },
+    "full_name": "Mexico"
+  },
+  {
+    "country": "FM",
+    "counts": {
+      "places": 172,
+      "brands": 0
+    },
+    "full_name": "Micronesia, Federated States of"
+  },
+  {
+    "country": "MD",
+    "counts": {
+      "places": 25099,
+      "brands": 234
+    },
+    "full_name": "Moldova, Republic of"
+  },
+  {
+    "country": "MC",
+    "counts": {
+      "places": 2487,
+      "brands": 138
+    },
+    "full_name": "Monaco"
+  },
+  {
+    "country": "MN",
+    "counts": {
+      "places": 16803,
+      "brands": 71
+    },
+    "full_name": "Mongolia"
+  },
+  {
+    "country": "ME",
+    "counts": {
+      "places": 18277,
+      "brands": 98
+    },
+    "full_name": "Montenegro"
+  },
+  {
+    "country": "MS",
+    "counts": {
+      "places": 69,
+      "brands": 0
+    },
+    "full_name": "Montserrat"
+  },
+  {
+    "country": "MA",
+    "counts": {
+      "places": 115489,
+      "brands": 381
+    },
+    "full_name": "Morocco"
+  },
+  {
+    "country": "MZ",
+    "counts": {
+      "places": 13370,
+      "brands": 63
+    },
+    "full_name": "Mozambique"
+  },
+  {
+    "country": "MM",
+    "counts": {
+      "places": 66940,
+      "brands": 268
+    },
+    "full_name": "Myanmar"
+  },
+  {
+    "country": "NA",
+    "counts": {
+      "places": 11041,
+      "brands": 137
+    },
+    "full_name": "Namibia"
+  },
+  {
+    "country": "NR",
+    "counts": {
+      "places": 40,
+      "brands": 0
+    },
+    "full_name": "Nauru"
+  },
+  {
+    "country": "NP",
+    "counts": {
+      "places": 84515,
+      "brands": 155
+    },
+    "full_name": "Nepal"
+  },
+  {
+    "country": "NL",
+    "counts": {
+      "places": 695768,
+      "brands": 2035
+    },
+    "full_name": "Netherlands"
+  },
+  {
+    "country": "NC",
+    "counts": {
+      "places": 6330,
+      "brands": 77
+    },
+    "full_name": "New Caledonia"
+  },
+  {
+    "country": "NZ",
+    "counts": {
+      "places": 178699,
+      "brands": 1103
+    },
+    "full_name": "New Zealand"
+  },
+  {
+    "country": "NI",
+    "counts": {
+      "places": 40311,
+      "brands": 190
+    },
+    "full_name": "Nicaragua"
+  },
+  {
+    "country": "NE",
+    "counts": {
+      "places": 1457,
+      "brands": 4
+    },
+    "full_name": "Niger"
+  },
+  {
+    "country": "NG",
+    "counts": {
+      "places": 145788,
+      "brands": 197
+    },
+    "full_name": "Nigeria"
+  },
+  {
+    "country": "NU",
+    "counts": {
+      "places": 44,
+      "brands": 0
+    },
+    "full_name": "Niue"
+  },
+  {
+    "country": "NF",
+    "counts": {
+      "places": 151,
+      "brands": 1
+    },
+    "full_name": "Norfolk Island"
+  },
+  {
+    "country": "MK",
+    "counts": {
+      "places": 41289,
+      "brands": 182
+    },
+    "full_name": "North Macedonia"
+  },
+  {
+    "country": "MP",
+    "counts": {
+      "places": 977,
+      "brands": 18
+    },
+    "full_name": "Northern Mariana Islands"
+  },
+  {
+    "country": "NO",
+    "counts": {
+      "places": 221507,
+      "brands": 710
+    },
+    "full_name": "Norway"
+  },
+  {
+    "country": "OM",
+    "counts": {
+      "places": 13854,
+      "brands": 273
+    },
+    "full_name": "Oman"
+  },
+  {
+    "country": "PK",
+    "counts": {
+      "places": 194309,
+      "brands": 691
+    },
+    "full_name": "Pakistan"
+  },
+  {
+    "country": "PW",
+    "counts": {
+      "places": 401,
+      "brands": 5
+    },
+    "full_name": "Palau"
+  },
+  {
+    "country": "PS",
+    "counts": {
+      "places": 21408,
+      "brands": 101
+    },
+    "full_name": "Palestine, State of"
+  },
+  {
+    "country": "PA",
+    "counts": {
+      "places": 31086,
+      "brands": 368
+    },
+    "full_name": "Panama"
+  },
+  {
+    "country": "PG",
+    "counts": {
+      "places": 4114,
+      "brands": 12
+    },
+    "full_name": "Papua New Guinea"
+  },
+  {
+    "country": "PY",
+    "counts": {
+      "places": 104546,
+      "brands": 363
+    },
+    "full_name": "Paraguay"
+  },
+  {
+    "country": "PE",
+    "counts": {
+      "places": 402149,
+      "brands": 1275
+    },
+    "full_name": "Peru"
+  },
+  {
+    "country": "PH",
+    "counts": {
+      "places": 1037202,
+      "brands": 1797
+    },
+    "full_name": "Philippines"
+  },
+  {
+    "country": "PN",
+    "counts": {
+      "places": 5,
+      "brands": 0
+    },
+    "full_name": "Pitcairn"
+  },
+  {
+    "country": "PL",
+    "counts": {
+      "places": 972639,
+      "brands": 2099
+    },
+    "full_name": "Poland"
+  },
+  {
+    "country": "PT",
+    "counts": {
+      "places": 369935,
+      "brands": 1247
+    },
+    "full_name": "Portugal"
+  },
+  {
+    "country": "PR",
+    "counts": {
+      "places": 92459,
+      "brands": 710
+    },
+    "full_name": "Puerto Rico"
+  },
+  {
+    "country": "QA",
+    "counts": {
+      "places": 22825,
+      "brands": 531
+    },
+    "full_name": "Qatar"
+  },
+  {
+    "country": "RO",
+    "counts": {
+      "places": 307175,
+      "brands": 1252
+    },
+    "full_name": "Romania"
+  },
+  {
+    "country": "RU",
+    "counts": {
+      "places": 462851,
+      "brands": 2083
+    },
+    "full_name": "Russian Federation"
+  },
+  {
+    "country": "RW",
+    "counts": {
+      "places": 3646,
+      "brands": 23
+    },
+    "full_name": "Rwanda"
+  },
+  {
+    "country": "RE",
+    "counts": {
+      "places": 17875,
+      "brands": 256
+    },
+    "full_name": "Réunion"
+  },
+  {
+    "country": "BL",
+    "counts": {
+      "places": 522,
+      "brands": 18
+    },
+    "full_name": "Saint Barthélemy"
+  },
+  {
+    "country": "SH",
+    "counts": {
+      "places": 64,
+      "brands": 0
+    },
+    "full_name": "Saint Helena, Ascension and Tristan da Cunha"
+  },
+  {
+    "country": "KN",
+    "counts": {
+      "places": 1324,
+      "brands": 22
+    },
+    "full_name": "Saint Kitts and Nevis"
+  },
+  {
+    "country": "LC",
+    "counts": {
+      "places": 2268,
+      "brands": 29
+    },
+    "full_name": "Saint Lucia"
+  },
+  {
+    "country": "MF",
+    "counts": {
+      "places": 1022,
+      "brands": 20
+    },
+    "full_name": "Saint Martin (French part)"
+  },
+  {
+    "country": "PM",
+    "counts": {
+      "places": 169,
+      "brands": 1
+    },
+    "full_name": "Saint Pierre and Miquelon"
+  },
+  {
+    "country": "VC",
+    "counts": {
+      "places": 1355,
+      "brands": 18
+    },
+    "full_name": "Saint Vincent and the Grenadines"
+  },
+  {
+    "country": "WS",
+    "counts": {
+      "places": 948,
+      "brands": 2
+    },
+    "full_name": "Samoa"
+  },
+  {
+    "country": "SM",
+    "counts": {
+      "places": 2058,
+      "brands": 32
+    },
+    "full_name": "San Marino"
+  },
+  {
+    "country": "ST",
+    "counts": {
+      "places": 364,
+      "brands": 0
+    },
+    "full_name": "Sao Tome and Principe"
+  },
+  {
+    "country": "SA",
+    "counts": {
+      "places": 96418,
+      "brands": 828
+    },
+    "full_name": "Saudi Arabia"
+  },
+  {
+    "country": "SN",
+    "counts": {
+      "places": 11490,
+      "brands": 49
+    },
+    "full_name": "Senegal"
+  },
+  {
+    "country": "RS",
+    "counts": {
+      "places": 97348,
+      "brands": 458
+    },
+    "full_name": "Serbia"
+  },
+  {
+    "country": "SC",
+    "counts": {
+      "places": 1399,
+      "brands": 8
+    },
+    "full_name": "Seychelles"
+  },
+  {
+    "country": "SL",
+    "counts": {
+      "places": 2487,
+      "brands": 7
+    },
+    "full_name": "Sierra Leone"
+  },
+  {
+    "country": "SG",
+    "counts": {
+      "places": 131703,
+      "brands": 1513
+    },
+    "full_name": "Singapore"
+  },
+  {
+    "country": "SX",
+    "counts": {
+      "places": 1432,
+      "brands": 29
+    },
+    "full_name": "Sint Maarten (Dutch part)"
+  },
+  {
+    "country": "SK",
+    "counts": {
+      "places": 116733,
+      "brands": 551
+    },
+    "full_name": "Slovakia"
+  },
+  {
+    "country": "SI",
+    "counts": {
+      "places": 51787,
+      "brands": 199
+    },
+    "full_name": "Slovenia"
+  },
+  {
+    "country": "SB",
+    "counts": {
+      "places": 624,
+      "brands": 0
+    },
+    "full_name": "Solomon Islands"
+  },
+  {
+    "country": "SO",
+    "counts": {
+      "places": 4957,
+      "brands": 10
+    },
+    "full_name": "Somalia"
+  },
+  {
+    "country": "ZA",
+    "counts": {
+      "places": 562948,
+      "brands": 1700
+    },
+    "full_name": "South Africa"
+  },
+  {
+    "country": "GS",
+    "counts": {
+      "places": 90,
+      "brands": 0
+    },
+    "full_name": "South Georgia and the South Sandwich Islands"
+  },
+  {
+    "country": "SS",
+    "counts": {
+      "places": 2413,
+      "brands": 5
+    },
+    "full_name": "South Sudan"
+  },
+  {
+    "country": "ES",
+    "counts": {
+      "places": 1544503,
+      "brands": 3655
+    },
+    "full_name": "Spain"
+  },
+  {
+    "country": "AN",
+    "counts": {
+      "places": 14,
+      "brands": 0
+    },
+    "full_name": "Spain"
+  },
+  {
+    "country": "LK",
+    "counts": {
+      "places": 123820,
+      "brands": 376
+    },
+    "full_name": "Sri Lanka"
+  },
+  {
+    "country": "SD",
+    "counts": {
+      "places": 7133,
+      "brands": 12
+    },
+    "full_name": "Sudan"
+  },
+  {
+    "country": "SR",
+    "counts": {
+      "places": 7450,
+      "brands": 46
+    },
+    "full_name": "Suriname"
+  },
+  {
+    "country": "SJ",
+    "counts": {
+      "places": 311,
+      "brands": 2
+    },
+    "full_name": "Svalbard and Jan Mayen"
+  },
+  {
+    "country": "SE",
+    "counts": {
+      "places": 439793,
+      "brands": 1122
+    },
+    "full_name": "Sweden"
+  },
+  {
+    "country": "CH",
+    "counts": {
+      "places": 385337,
+      "brands": 1366
+    },
+    "full_name": "Switzerland"
+  },
+  {
+    "country": "SY",
+    "counts": {
+      "places": 17352,
+      "brands": 32
+    },
+    "full_name": "Syrian Arab Republic"
+  },
+  {
+    "country": "TW",
+    "counts": {
+      "places": 847462,
+      "brands": 1648
+    },
+    "full_name": "Taiwan, Province of China"
+  },
+  {
+    "country": "TJ",
+    "counts": {
+      "places": 2013,
+      "brands": 9
+    },
+    "full_name": "Tajikistan"
+  },
+  {
+    "country": "TZ",
+    "counts": {
+      "places": 24606,
+      "brands": 66
+    },
+    "full_name": "Tanzania, United Republic of"
+  },
+  {
+    "country": "TH",
+    "counts": {
+      "places": 1853935,
+      "brands": 1572
+    },
+    "full_name": "Thailand"
+  },
+  {
+    "country": "TL",
+    "counts": {
+      "places": 1348,
+      "brands": 7
+    },
+    "full_name": "Timor-Leste"
+  },
+  {
+    "country": "TG",
+    "counts": {
+      "places": 3905,
+      "brands": 16
+    },
+    "full_name": "Togo"
+  },
+  {
+    "country": "TK",
+    "counts": {
+      "places": 3,
+      "brands": 0
+    },
+    "full_name": "Tokelau"
+  },
+  {
+    "country": "TO",
+    "counts": {
+      "places": 629,
+      "brands": 2
+    },
+    "full_name": "Tonga"
+  },
+  {
+    "country": "TT",
+    "counts": {
+      "places": 22540,
+      "brands": 144
+    },
+    "full_name": "Trinidad and Tobago"
+  },
+  {
+    "country": "TN",
+    "counts": {
+      "places": 61986,
+      "brands": 211
+    },
+    "full_name": "Tunisia"
+  },
+  {
+    "country": "TR",
+    "counts": {
+      "places": 1618774,
+      "brands": 1590
+    },
+    "full_name": "Turkey"
+  },
+  {
+    "country": "TM",
+    "counts": {
+      "places": 643,
+      "brands": 2
+    },
+    "full_name": "Turkmenistan"
+  },
+  {
+    "country": "TC",
+    "counts": {
+      "places": 1284,
+      "brands": 13
+    },
+    "full_name": "Turks and Caicos Islands"
+  },
+  {
+    "country": "TV",
+    "counts": {
+      "places": 34,
+      "brands": 1
+    },
+    "full_name": "Tuvalu"
+  },
+  {
+    "country": "UG",
+    "counts": {
+      "places": 32586,
+      "brands": 52
+    },
+    "full_name": "Uganda"
+  },
+  {
+    "country": "UA",
+    "counts": {
+      "places": 289357,
+      "brands": 1612
+    },
+    "full_name": "Ukraine"
+  },
+  {
+    "country": "AE",
+    "counts": {
+      "places": 130224,
+      "brands": 1515
+    },
+    "full_name": "United Arab Emirates"
+  },
+  {
+    "country": "GB",
+    "counts": {
+      "places": 2481563,
+      "brands": 5755
+    },
+    "full_name": "United Kingdom"
+  },
+  {
+    "country": "US",
+    "counts": {
+      "places": 13160925,
+      "brands": 28711
+    },
+    "full_name": "United States"
+  },
+  {
+    "country": "UM",
+    "counts": {
+      "places": 7,
+      "brands": 0
+    },
+    "full_name": "United States Minor Outlying Islands"
+  },
+  {
+    "country": "UY",
+    "counts": {
+      "places": 59712,
+      "brands": 361
+    },
+    "full_name": "Uruguay"
+  },
+  {
+    "country": "UZ",
+    "counts": {
+      "places": 17857,
+      "brands": 121
+    },
+    "full_name": "Uzbekistan"
+  },
+  {
+    "country": "VU",
+    "counts": {
+      "places": 1082,
+      "brands": 3
+    },
+    "full_name": "Vanuatu"
+  },
+  {
+    "country": "VE",
+    "counts": {
+      "places": 68681,
+      "brands": 139
+    },
+    "full_name": "Venezuela, Bolivarian Republic of"
+  },
+  {
+    "country": "VN",
+    "counts": {
+      "places": 1447786,
+      "brands": 3146
+    },
+    "full_name": "Viet Nam"
+  },
+  {
+    "country": "VG",
+    "counts": {
+      "places": 874,
+      "brands": 6
+    },
+    "full_name": "Virgin Islands, British"
+  },
+  {
+    "country": "VI",
+    "counts": {
+      "places": 3811,
+      "brands": 74
+    },
+    "full_name": "Virgin Islands, U.S."
+  },
+  {
+    "country": "WF",
+    "counts": {
+      "places": 43,
+      "brands": 1
+    },
+    "full_name": "Wallis and Futuna"
+  },
+  {
+    "country": "EH",
+    "counts": {
+      "places": 656,
+      "brands": 2
+    },
+    "full_name": "Western Sahara"
+  },
+  {
+    "country": "YE",
+    "counts": {
+      "places": 7391,
+      "brands": 4
+    },
+    "full_name": "Yemen"
+  },
+  {
+    "country": "ZM",
+    "counts": {
+      "places": 24016,
+      "brands": 95
+    },
+    "full_name": "Zambia"
+  },
+  {
+    "country": "ZW",
+    "counts": {
+      "places": 24384,
+      "brands": 70
+    },
+    "full_name": "Zimbabwe"
+  },
+  {
+    "country": "AX",
+    "counts": {
+      "places": 184,
+      "brands": 0
+    },
+    "full_name": "Åland Islands"
+  }
+]
