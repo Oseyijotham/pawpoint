@@ -68,7 +68,6 @@ export const SharedSortingLayout = () => {
   return (
     <Container>
       {myKey === null && (
-        
         <div className={css.cover}>
           <div className={css.modal}>
             <div className={css.modalLabel}>
@@ -119,7 +118,10 @@ export const SharedSortingLayout = () => {
         <Link to="/sharedLayout/apiCreator/catImages" onClick={handleSortAll}>
           View Cat Images
         </Link>
-        <Link to="/sharedLayout/apiCreator/dogImages" onClick={handleSortPending}>
+        <Link
+          to="/sharedLayout/apiCreator/dogImages"
+          onClick={handleSortPending}
+        >
           View Dog Images
         </Link>
         <Link to="savedPlaces" onClick={handleSortFulfilled}>
@@ -137,7 +139,7 @@ export const SharedSortingLayout = () => {
               visible={true}
               height="80"
               width="80"
-              color="#9225ff"
+              color="#1e73d8"
               radius="9"
               ariaLabel="three-dots-loading"
               wrapperStyle={{}}

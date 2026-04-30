@@ -7,8 +7,7 @@
 
 .footer{
     text-align: center;
-    background: linear-gradient(270deg, rgba(254, 55, 55, 0.25) -32.31%, rgba(87, 133, 255, 0.25) 63.97%, rgba(102, 126, 237, 0.25) 191.94%);
-    background-image: linear-gradient(to top left, #ffb800, #9225ff);
+    background-color: #1E73D8;
     width:100%;
     font-family: 'DM Sans';
     font-weight: 700;
@@ -19,12 +18,12 @@
 }
 
 .start{
-color:#ffb800;
+color:#6FB23A;
 font-family: 'Comic Sans MS';
 }
 
 .end{
-color:#9225ff;
+color:#ffff;
 font-family: 'Comic Sans MS';
 }
 

@@ -49,10 +49,10 @@ export const ContactForm = ({lowerLimitSetter, upperLimitSetter, children }) => 
 
   return (
     <div className={css.taskBook}>
-      <h2 className={css.formTitle}>Pet Services</h2>
+      <h2 className={css.formTitle}>Dog Points</h2>
       <form onSubmit={handleSubmit} className={css.formSection}>
         <label className={css.loginLabel}>
-          <span className={css.formLabel}>Categories:</span>
+          <span className={css.formLabel}>Points:</span>
           <select
             className={css.formInput}
             onChange={handleCategoryChange}
@@ -72,7 +72,7 @@ export const ContactForm = ({lowerLimitSetter, upperLimitSetter, children }) => 
                 color: 'black',
               }}
             >
-              Choose a category of pet service
+              Choose a category of Dog Points
             </option>
             {Categories.map(categorie => (
               <option value={categorie}>{categorie}</option>

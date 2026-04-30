@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async ({ firstName, lastName, email, phone, password }, thunkAPI) => {
     Notiflix.Loading.pulse('Registering Your Account...', {
-      svgColor: '#9225ff',
+      svgColor: '#1E73D8',
       fontFamily: 'DM Sans',
     });
     try {
@@ -48,7 +48,7 @@ export const logIn = createAsyncThunk(
   'auth/login',
   async ({ email, password }, thunkAPI) => {
     Notiflix.Loading.pulse('Logging You In...', {
-      svgColor: '#9225ff',
+      svgColor: '#1E73D8',
       fontFamily: 'DM Sans',
     });
     try {
@@ -74,7 +74,7 @@ export const clearData = createAsyncThunk('auth/clear', async (_, thunkAPI) => {
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   Notiflix.Loading.pulse('Logging You Out...', {
-    svgColor: '#9225ff',
+    svgColor: '#1E73D8',
     fontFamily: 'DM Sans',
   });
   try {
@@ -139,7 +139,7 @@ export const updateAvatar = createAsyncThunk(
   'auth/updateAvatar',
   async (file, thunkAPI) => {
     Notiflix.Loading.pulse('Updating Your Avatar...', {
-      svgColor: '#9225ff',
+      svgColor: '#1E73D8',
       fontFamily: 'DM Sans',
     });
     console.log(file);

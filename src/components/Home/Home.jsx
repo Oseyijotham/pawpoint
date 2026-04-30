@@ -7,9 +7,9 @@ import {
   selectIsLoading
 } from '../../redux/AppRedux/selectors';
 import { selectUser } from '../../redux/AuthRedux/selectors';
-import { retrieveApiKey, fetchCatPics, fetchDogPics } from '../../redux/AppRedux/operations';
-import icon from './list2.svg';
-import PetServices from './PetServices.png';
+import { retrieveApiKey } from '../../redux/AppRedux/operations';
+import icon from './point.png';
+import PetServices from './Dog Points.png';
 import API from './API.png';
 import Profile from './Profile.png';
 import { useMediaQuery } from 'react-responsive';
@@ -37,8 +37,6 @@ export const Home = () => {
 
 useEffect(() => {
   dispatch(retrieveApiKey());
-  //dispatch(fetchCatPics());
-  //dispatch(fetchDogPics());
 }, [dispatch]);
 
   return (
@@ -57,16 +55,15 @@ useEffect(() => {
             </span>
             <span className={css.homeDisplaySlogan}>
               <i>
-                Here at GeoPets we provide you with information on all pet
-                related services and facilities for any country of your choice,
-                from Dog Walkers to Holistic Animal Care we've got you covered.
+                Here at PawPoint, we provide you with smart location-based
+                information on dog-friendly services, facilities, and outdoor
+                spots for any area of your choice. From dog parks and walkers to
+                vets, trainers, and live weather conditions, we’ve got you and
+                your dog covered.
               </i>
             </span>
             <span className={css.homeDisplaySloganMobile}>
-              <i>
-                Here at GeoPets we provide you with information on all pet
-                related services and facilities.
-              </i>
+              <i>Data-driven dog adventures</i>
             </span>
           </span>
           <div className={css.homeIconWrapper}>
@@ -97,8 +94,8 @@ useEffect(() => {
               boxShadow: `
               ${
                 isOneHovered
-                  ? 'inset 0 0 50px 30px #9225ff'
-                  : 'inset 0 0 10px 5px  #9225ff'
+                  ? 'inset 0 0 50px 30px #0B2A4A'
+                  : 'inset 0 0 10px 5px  #0B2A4A'
               }
               `,
             }}
@@ -120,12 +117,12 @@ useEffect(() => {
                   />
                   <p className={css.catWardDescription}>
                     <span className={css.catWardDescriptionbackground}>
-                      Find Pet Services anywhere in the world.
+                      Find the right places at the right conditions .
                     </span>
                   </p>
                 </div>
                 <span className={css.movieName}>
-                  <span className={css.wardName}>Pet Services</span>
+                  <span className={css.wardName}>Dog Points</span>
                 </span>
               </Link>
             </div>
@@ -147,8 +144,8 @@ useEffect(() => {
               boxShadow: `
               ${
                 isTwoHovered
-                  ? 'inset 0 0 50px 30px #9225ff'
-                  : 'inset 0 0 10px 5px  #9225ff'
+                  ? 'inset 0 0 50px 30px #0B2A4A'
+                  : 'inset 0 0 10px 5px  #0B2A4A'
               }
               `,
             }}
@@ -197,8 +194,8 @@ useEffect(() => {
               boxShadow: `
               ${
                 isThreeHovered
-                  ? 'inset 0 0 50px 30px #9225ff'
-                  : 'inset 0 0 10px 5px  #9225ff'
+                  ? 'inset 0 0 50px 30px #0B2A4A'
+                  : 'inset 0 0 10px 5px  #0B2A4A'
               }
               `,
             }}

@@ -17,7 +17,7 @@ import { useState,Suspense } from 'react';
 import { logOut } from '../../redux/AuthRedux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAuthHook } from '../../customHook/customHook';
-import logoImage from './GeoPets.png';
+import logoImage from './logo.png';
 import { useMediaQuery } from 'react-responsive';
 import svg from './icons.svg';
 import clsx from 'clsx';
@@ -49,9 +49,11 @@ export const SharedLayout = () => {
               <img src={logoImage} alt="Logo" width="80px" />
             </Frame>
             <IconLabelWrapper>
-              <IconLabelStart>Geo</IconLabelStart>
+              <IconLabelStart>
+                <i>Paw</i>
+              </IconLabelStart>
               <IconLabelEnd>
-                <i>Pets</i>
+                <i>point</i>
               </IconLabelEnd>
             </IconLabelWrapper>
           </Logo>
@@ -176,7 +178,7 @@ export const SharedLayout = () => {
               visible={true}
               height="80"
               width="80"
-              color="#9225ff"
+              color="#1E73D8"
               radius="9"
               ariaLabel="three-dots-loading"
               wrapperStyle={{}}

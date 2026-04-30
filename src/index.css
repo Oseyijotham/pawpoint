@@ -10,11 +10,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-/*background-color:  #330d5a;*/
-/*background-color:  #280a46;*/
-/*background-color:  #1c0631;*/
-background: rgba(40, 10, 70, 0.6) url(./background.png); /* #280a46 with 60% opacity */
+background: url(./background.png); /* #280a46 with 60% opacity */
 background-blend-mode: overlay; /* Optional: blends the color with the image */
+background-color: #487724;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

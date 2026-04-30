@@ -84,12 +84,20 @@ export const App = () => {
 
   }, []);
   return isRefreshing ? (
-    <div style={{ display: "flex", alignItems: 'center', justifyContent: 'center', height: '100vh', width: '100vw' }}>
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        width: '100vw',
+      }}
+    >
       <ThreeCircles
         visible={true}
         height="80"
         width="80"
-        color="#9225ff"
+        color="#1E73D8"
         radius="9"
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}

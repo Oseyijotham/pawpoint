@@ -4,7 +4,7 @@ import css from './Login.module.css';
 import Notiflix from 'notiflix';
 import { NavLink } from 'react-router-dom';
 import { useAuthHook } from '../../customHook/customHook';
-import logoImage from './GeoPets.png';
+import logoImage from './logo.png';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -68,9 +68,9 @@ export const Login = () => {
                   />
                 </div>
                 <div className={css.iconLabelWrapper}>
-                  <span className={css.iconLabelStart}>Geo</span>
+                  <span className={css.iconLabelStart}><i>Paw</i></span>
                   <span className={css.iconLabelEnd}>
-                    <i>Pets</i>
+                    <i>Point</i>
                   </span>
                 </div>
               </div>

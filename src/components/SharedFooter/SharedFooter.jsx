@@ -2,11 +2,8 @@ import { Outlet } from 'react-router-dom';
 import css from './SharedFooter.module.css';
 import { Suspense } from 'react';
 import { ThreeCircles } from 'react-loader-spinner';
-//import { useAuthHook } from '../../customHook/customHook';
 
 export const SharedFooter = () => {
-  //const { All } = useAuthHook();
-  //console.log(All);
   return (
     <>
       <Suspense
@@ -17,7 +14,7 @@ export const SharedFooter = () => {
               visible={true}
               height="80"
               width="80"
-              color="#9225ff"
+              color="#1E73D8"
               radius="9"
               ariaLabel="three-dots-loading"
               wrapperStyle={{}}
@@ -29,9 +26,12 @@ export const SharedFooter = () => {
         <Outlet />
       </Suspense>
       <div className={css.footer}>
-        © 2025 - <span className={css.start}>Geo</span>
+        © 2026 -{' '}
+        <span className={css.start}>
+          <i>Paw</i>
+        </span>
         <span className={css.end}>
-          <i>Pets</i>
+          <i>point</i>
         </span>
       </div>
     </>

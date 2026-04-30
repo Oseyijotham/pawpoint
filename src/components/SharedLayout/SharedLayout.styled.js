@@ -26,10 +26,10 @@ export const Header = styled.header`
   margin-bottom: 8px;
   margin-top: 8px;
   border: none;
-  background-image: linear-gradient(to top left, #ffb800, #9225ff);
+  background-color: #1e73d8;
   backdrop-filter: blur(30px);
   border-radius: 30px;
-  filter: drop-shadow(0px 16px 24px #9225ff);
+  filter: drop-shadow(0px 16px 24px #0b2a4a);
 
   &:hover {
   }
@@ -110,7 +110,7 @@ export const IconLabelStart = styled.span`
   font-family: 'Comic Sans MS';
   font-size: 20px;
   font-weight: 700;
-  color: #ffb800;
+  color: #6fb23a;
 `;
 
 export const IconLabelEnd = styled.span`
@@ -118,16 +118,16 @@ export const IconLabelEnd = styled.span`
   font-family: 'Comic Sans MS';
   font-size: 20px;
   font-weight: 700;
-  color: #9225ff;
+  color: #ffff;
 `;
 
 export const Burger = styled.button`
-  fill: #9225ff;
+  fill: #0b2a4a;
   cursor: pointer;
   border: none;
   background-color: transparent;
   &:hover {
-    fill: #280a46;
+    fill: #00bfff;
   }
   @media (min-width: 768px) {
     display: none;
@@ -139,7 +139,7 @@ export const Linker = styled(NavLink)`
   padding: 8px 12px;
   border-radius: 4px;
   text-decoration: none;
-  text-align:center;
+  text-align: center;
   color: #fff;
   font-weight: 700;
   position: relative;
@@ -154,7 +154,7 @@ export const Linker = styled(NavLink)`
     width: 100%;
     height: 4px;
     border-radius: 2px;
-    background-color: #9225ff;
+    background-color: #0b2a4a;
     transform: scaleX(0);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: left;
@@ -197,7 +197,7 @@ export const Button = styled.button`
     width: 100%;
     height: 4px;
     border-radius: 2px;
-    background-color: #9225ff;
+    background-color: #0b2a4a;
     transform: scaleX(0);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: left;
