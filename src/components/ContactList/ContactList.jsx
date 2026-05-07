@@ -20,6 +20,7 @@ import {
   handleFilterBackwardDown,
   updateStatus,
   openMobileAndTabModal,
+  fetchWeatherKey,
 } from '../../redux/AppRedux/operations';
 import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
@@ -28,7 +29,15 @@ import icons from './icons.svg';
 
 
 
-export const ContactList = ({ lowerLimitProp, upperLimitProp, lowerLimitSetter, upperLimitSetter, children }) => {
+export const ContactList = ({
+  lowerLimitProp,
+  upperLimitProp,
+  lowerLimitSetter,
+  upperLimitSetter,
+  placeDetailsSetter,
+  weatherConditionsSetter,
+  children,
+}) => {
   const [isTrue, setIfTrue] = useState(true);
   const sectionRef = useRef(null);
   const places = useSelector(selectPlaces);
@@ -37,79 +46,77 @@ export const ContactList = ({ lowerLimitProp, upperLimitProp, lowerLimitSetter, 
   const isLoading = useSelector(selectIsLoading);
   const isUpdateLoading = useSelector(selectIsUpdateLoading);
   const error = useSelector(selectError);
-  
+
   const dispatch = useDispatch();
   const filterValue = useSelector(selectContactsFilter);
 
-  const handleModalOpen = (evt) => {
+  const handleModalOpen = (placesData, evt) => {
     if (evt.target.getAttribute('data-id')) {
-      
-
       const id = evt.currentTarget.getAttribute('data-id');
-      
+      placeDetailsSetter(true);
+      weatherConditionsSetter(false);
       dispatch(fetchContactById(id));
       dispatch(openModal());
       dispatch(openMobileAndTabModal());
+      dispatch(fetchWeatherKey({ lat:placesData.geometry.coordinates[1], long:placesData.geometry.coordinates[0] }));
     }
   };
-  
 
-
-  const handleForward = (evt) => {
+  const handleForward = evt => {
     evt.target.style.boxShadow = 'inset 0 0 10px 5px rgba(0, 0, 0, 0.3)';
     setTimeout(() => {
       evt.target.style.boxShadow = 'none';
     }, 500);
     sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-    
-    if (filterValue === "") {
+
+    if (filterValue === '') {
       lowerLimitSetter(lowerLimitProp + 4);
       upperLimitSetter(upperLimitProp + 4);
     }
-    if (filterValue !== "") {
-      console.log("OK")
+    if (filterValue !== '') {
+      console.log('OK');
       const str = filterUp;
-      const sto = filterDown
+      const sto = filterDown;
       dispatch(handleFilterFowardUp(str));
       dispatch(handleFilterFowardDown(sto));
     }
-  }
+  };
 
-  const handleBackward = (evt) => {
-     evt.target.style.boxShadow = 'inset 0 0 10px 5px rgba(0, 0, 0, 0.3)';
-     setTimeout(() => {
-       evt.target.style.boxShadow = 'none';
-       sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-     }, 80);
-    
-    
-    if (filterValue === "") {
+  const handleBackward = evt => {
+    evt.target.style.boxShadow = 'inset 0 0 10px 5px rgba(0, 0, 0, 0.3)';
+    setTimeout(() => {
+      evt.target.style.boxShadow = 'none';
+      sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 80);
+
+    if (filterValue === '') {
       lowerLimitSetter(lowerLimitProp - 4);
       upperLimitSetter(upperLimitProp - 4);
     }
     if (filterValue !== '') {
       const str1 = filterUp;
       const sto1 = filterDown;
-       dispatch(handleFilterBackwardUp(str1));
-       dispatch(handleFilterBackwardDown(sto1));
-     }
+      dispatch(handleFilterBackwardUp(str1));
+      dispatch(handleFilterBackwardDown(sto1));
+    }
   };
-  
-  const handleChange = (placesData, evt) => {
 
+  const handleChange = (placesData, evt) => {
     setIfTrue(evt.target.checked);
 
-    dispatch(updateStatus({ data: { ...placesData, status: evt.target.checked } }));
-  }
-  
-   const bestMatches = places.filter(
-     place =>
-       place.properties.names.primary.toLowerCase().includes(filterValue.trim().toLowerCase()) &&
-       filterValue.trim() !== ''
-  );
-  
-  
+    dispatch(
+      updateStatus({ data: { ...placesData, status: evt.target.checked } })
+    );
+  };
 
+
+
+  const bestMatches = places.filter(
+    place =>
+      place.properties.names.primary
+        .toLowerCase()
+        .includes(filterValue.trim().toLowerCase()) && filterValue.trim() !== ''
+  );
 
   return (
     <div className={css.contactsSection}>
@@ -158,7 +165,7 @@ export const ContactList = ({ lowerLimitProp, upperLimitProp, lowerLimitSetter, 
                     key={place.id}
                     data-id={place.id}
                     className={css.contactsItem}
-                    onClick={handleModalOpen}
+                    onClick={evt => handleModalOpen(place, evt)}
                   >
                     <span className={css.contactsData} data-id={place.id}>
                       <input

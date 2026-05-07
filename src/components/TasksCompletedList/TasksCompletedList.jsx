@@ -93,7 +93,7 @@ export const TasksCompletedList = ({ children }) => {
               />
               {isSavedPlacesLoading && (
                 <p className={css.centerLabel}>
-                  Please be patient, fetching places can take up to 60 seconds
+                  Fetching your saved places
                 </p>
               )}
               {isDeletePlacesLoading && (

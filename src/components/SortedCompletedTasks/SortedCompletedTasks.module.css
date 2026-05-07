@@ -44,7 +44,7 @@
 .contactsDetailsHide{
   display: none;
   text-align: center;
-  background-image: linear-gradient(to top left, #ffb800, #9225ff);
+  background-color: #1e73d8;
   position: absolute;
     width: 550px;
     border-radius: 30px;
@@ -80,7 +80,7 @@
   border-radius: 50%;
   cursor: pointer;
   padding: 8px;
-  background-color:#9225ff;
+  background-color:#0b2a4a;
   fill: #fff;
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@
 }
 
 .closeModal:hover {
-   background-color:#ffb800;
+   background-color:#00bfff;
 }
 
 .contactsDetailsArea{
@@ -105,8 +105,8 @@
 }
 
 .detailsTitle{
-  box-shadow: inset 0 0 10px 2px #9225ff;
-    background-color: #280a46;
+  box-shadow: inset 0 0 10px 2px #00bfff;
+    background-color: #0b2a4a;
     color: #fff;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
@@ -114,7 +114,7 @@
     padding: 5px;
     margin: 5px;
     border-radius: 30px;
-    border: 2px solid #ffb800;
+    border: 2px solid #ffff;
     font-weight: 700;
 }
 
@@ -166,7 +166,7 @@ font-size: 26px;
   font-family: 'DM Sans';
   font-weight: 700;
    font-size: 13px;
-  background-image: linear-gradient(to top left, #ffb800, #9225ff);
+  background-color: #0b2a4a;
   border: 1px solid #fff;
   cursor: pointer;
   display: inline-block;
@@ -177,10 +177,6 @@ font-size: 26px;
   .detailsImageInput{
      font-size: 16px;
   }
-}
-
-.detailsImageInput:hover{
-   background-image: linear-gradient(to bottom right, #9225ff, #ffb800);
 }
 
 .detailsSectionTitle{
@@ -232,7 +228,7 @@ color: #fff;
 border-radius: 30px;
 box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
 border: 1px solid #fff;
-background-color: #280a46;
+background-color: #0b2a4a;
 }
 
 @media screen and (max-width:767px) {
@@ -255,18 +251,16 @@ background-color: #280a46;
  border-radius: 30px;
  padding: 10px;
  border: 1px solid #fff;
- background-image: linear-gradient(to top left, #ffb800, #9225ff);
 }
 
 .detailsInfo{
   display: flex;
   align-items: center;
   gap:3px;
-  background-color: #280a46;
   border-radius: 10px;
   padding:5px;
   border: 1px solid #fff;
-  box-shadow: inset 0 0 10px 2px #9225ff;
+  box-shadow: inset 0 0 10px 2px #00bfff;
   text-align: start;
 }
 
@@ -279,7 +273,7 @@ background-color: #280a46;
   padding: 5px;
   border-radius: 10px;
   border: 1px solid #fff;
-  background-color:#9225ff;
+  background-color:#1e73d8;
   width: 120px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -342,7 +336,7 @@ background-color: #280a46;
 .detailsValInput{
   padding: 5px;
   border-radius: 10px;
-  background-color: #9225ff ;
+  background-color: #1e73d8;
   border: 1px solid #fff;
   box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
   color: #fff;
@@ -454,13 +448,13 @@ background-color: #280a46;
     cursor: pointer;
     border: none;
     color: #fff;
-    background-color: #9225ff;
+    background-color: #0b2a4a;
     border: 1px solid #fff;
 }
 
 .detailButton:hover{
 color: #fff;
-background-color: #ffb800 ;
+background-color: #00bfff;
 }
 
 .buttonWrapper{
@@ -474,7 +468,7 @@ background-color: #ffb800 ;
   border-radius: 50%;
   cursor: pointer;
   padding: 4px;
-  background: #9225ff;
+  background-color: #0b2a4a;
   fill: #fff;
   display: flex;
   align-items: center;
@@ -483,7 +477,7 @@ background-color: #ffb800 ;
 }
 
 .detailsEditClose:hover{
-background-color: #ffb800 ;
+background-color: #00bfff;
 }
 
 .backdrop {
@@ -514,7 +508,7 @@ background-color: #ffb800 ;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to top left, #ffb800, #9225ff);
+  background-color: #1e73d8;
   position: relative;
   border-radius: 30px;
 }

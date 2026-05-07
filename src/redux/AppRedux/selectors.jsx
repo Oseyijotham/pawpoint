@@ -10,6 +10,10 @@ export const selectContactsFilter = state => state.filter;
 
 export const selectIsLoading = state => state.contacts.contacts.isLoading;
 
+export const selectIsWeatherConditionsLoading = state => state.contacts.contacts.isWeatherConditionsLoading;
+
+export const selectWeatherConditions = state => state.contacts.contacts.weatherConditions;
+
 export const selectCatPageNums = state => state.contacts.contacts.catPageNums;
 
 export const selectDogPageNums = state => state.contacts.contacts.dogPageNums;

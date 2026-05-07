@@ -67,7 +67,7 @@ export const SharedLayout = () => {
         ></div>
         <nav>
           <Linker to="/sharedLayout/Home">Home</Linker>
-          <Linker to="/sharedLayout/placesFinder">Pet Services</Linker>
+          <Linker to="/sharedLayout/placesFinder">Dog Points</Linker>
           <Linker to="/sharedLayout/apiCreator">Create Your API</Linker>
           <Linker to="/sharedLayout/profile">My Profile</Linker>
           <Button type="button" onClick={() => dispatch(logOut())}>
@@ -136,7 +136,7 @@ export const SharedLayout = () => {
                       //handleShedular();
                     }}
                   >
-                    Pet Services
+                    Dog Points
                   </Link>
                 </li>
                 <li className={css.headerWindowNavItem}>

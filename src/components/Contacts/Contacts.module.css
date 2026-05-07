@@ -78,6 +78,43 @@
   border: 2px solid #fff;
 }
 
+.weather {
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}
+
+.weather:hover {
+  background-color: #00bfff;
+}
+
+.location {
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+  background-color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}
+
+.location:hover {
+  background-color: #00bfff;
+}
+
+.detailsTitleWrapper{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap:10px;
+}
+
 
 .closeModal:hover {
    background-color:#00bfff;
@@ -115,6 +152,7 @@
     border-radius: 30px;
     border: 2px solid #ffff;
     font-weight: 700;
+    cursor: pointer;
 }
 
 @media screen and (min-width:768px) {
@@ -127,6 +165,10 @@ font-size: 16px;
   .detailsTitle{
 font-size: 26px;
   }
+}
+
+.detailsTitle:hover{
+background-color: #00bfff;
 }
 
 .detailsImageWrapper{
@@ -184,9 +226,35 @@ font-size: 26px;
   margin-bottom: 10px;
 }
 
+.detailsCover{
+  position:relative
+}
+
+.backDrop {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  border-radius: 30px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerLabel{
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+}
+
 .detailsWrapper{
-  /*background-image: linear-gradient(to bottom, #c4253a 40%, #ffb8ca);*/
-  /*background-color: #c4253a;*/
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
@@ -200,6 +268,23 @@ font-size: 26px;
     border-radius: 30px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .3), 0 2px 4px -1px rgba(0, 0, 0, .2), 0 10px 12px -6px rgba(0, 0, 0, 0.4);
     width:280px;
+}
+
+.conditionsWrapper{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:5px;
+  font-weight: 700;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .3), 0 2px 4px -1px rgba(0, 0, 0, .2), 0 10px 12px -6px rgba(0, 0, 0, 0.4);
+    width:280px;
+    
 }
 
 
@@ -216,6 +301,24 @@ font-size: 26px;
 .detailsWrapper{
  border: 1px solid hsla(0, 0%, 6%, 0.3);
   width: 515px;
+  height: 500px;
+}
+}
+
+@media screen and (max-width:767px) {
+  .conditionsWrapper{
+    font-size: 13px;
+    
+  }
+}
+
+
+@media screen and (min-width:768px){
+
+.conditionsWrapper{
+ border: 1px solid hsla(0, 0%, 6%, 0.3);
+  width: 515px;
+  height: 500px;
 }
 }
 
@@ -259,8 +362,13 @@ background-color: #0b2a4a;
   border-radius: 10px;
   padding:5px;
   border: 1px solid #fff;
-  box-shadow: inset 0 0 10px 2px #00bfff;;
+  box-shadow: inset 0 0 10px 2px #00bfff;
   text-align: start;
+}
+
+.detail{
+  display: block;
+  width: 100%;
 }
 
 .details{
@@ -273,7 +381,7 @@ background-color: #0b2a4a;
   padding: 5px;
   border-radius: 10px;
   border: 1px solid #fff;
-  background-color:#0b2a4a;
+  background-color:#1e73d8;
   width: 120px;
   overflow: hidden;
 }
@@ -301,7 +409,7 @@ background-color: #0b2a4a;
   border-radius: 10px;
   border: 1px solid #fff;
   width: 100%;
-  background-color: #0b2a4a;
+  background-color: #1e73d8;
   white-space: normal; /* Allows the text to wrap */
   overflow-x: hidden;
   overflow-y: auto;
@@ -333,7 +441,7 @@ background-color: #0b2a4a;
 .detailsValPhone{
   padding: 5px;
   border-radius: 10px;
-  background-color: #0b2a4a;
+  background-color: #1e73d8;
   border: 1px solid #fff;
 }
 
@@ -422,27 +530,6 @@ background-color: #0b2a4a;
 }
 
 
-.backDrop {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  top: 0;
-  left: 0;
-  opacity: 1;
-  visibility: visible;
-  z-index: 1;
-  border-radius: 30px;
-}
-
-.loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-
 .detailButton{
     padding: 3px;
     border-radius: 10px;
@@ -512,7 +599,7 @@ background-color: #ffb800 ;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to top left, #ffb800, #9225ff);
+  background-color: #1e73d8;
   position: relative;
       border-radius: 30px;
       

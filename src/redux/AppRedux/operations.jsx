@@ -478,7 +478,7 @@ export const updateSortedCompletedContactName = createAsyncThunk(
   'contacts/updateSortedCompletedContactName',
   async ({ description, myUpdateId }, thunkAPI) => {
     Notiflix.Loading.pulse('Updating Place Description...', {
-      svgColor: '#9225ff',
+      svgColor: '#1e73d8',
       fontFamily: 'DM Sans',
     });
     try {
@@ -980,44 +980,7 @@ export const fetchSortedPastDueContactById = createAsyncThunk(
   }
 );
 
-/*export const deleteContact = createAsyncThunk(
-  'contacts/deleteContact',
-  async (taskId, thunkAPI) => {
-    try {
-     const res = await axios.delete(`/contacts/${taskId}`);
-      //await axios.get('/contacts');
-      const state = thunkAPI.getState();
-      const selectedContact = state.contacts.contacts.selectedContact;
-      const selectedSortedAllContact = state.contacts.contacts.selectedSortedAllContact;
-      const selectedSortedPendingContact = state.contacts.contacts.selectedSortedPendingContact;
-      const selectedSortedCompletedContact = state.contacts.contacts.selectedSortedCompletedContact;
-      const selectedSortedPastDueContact = state.contacts.contacts.selectedSortedPastDueContact;
-      //const newContacts = res.data;
-      //console.log(newContacts);
-       //const exist = newContacts.find(contact => contact._id === taskId);
-    
-    if (selectedContact._id === taskId) {
-      thunkAPI.dispatch(closeModal());
-      }
-     if (selectedSortedAllContact._id === taskId) {
-       thunkAPI.dispatch(closeSortedAllModal());
-      }  
-       if (selectedSortedPendingContact._id === taskId) {
-         thunkAPI.dispatch(closeSortedPendingModal());
-      }  
-       if (selectedSortedCompletedContact._id === taskId) {
-         thunkAPI.dispatch(closeSortedCompletedModal());
-      }  
-       if (selectedSortedPastDueContact._id === taskId) {
-         thunkAPI.dispatch(closeSortedPastDueModal());
-       }  
-      
-      return res.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(null);
-    }
-  }
-);  */
+
 
 
 export const deleteContact = createAsyncThunk(
@@ -1167,3 +1130,23 @@ export const deletePlaces = createAsyncThunk(
   }
 );
 
+
+export const fetchWeatherKey = createAsyncThunk(
+  'places/fetchWeatherConditions',
+  async ({lat, long}, thunkAPI) => {
+    try {
+      const res = await axios.get(
+        `/places/getWeather?lat=${lat}&long=${long}`
+      );
+      console.log(res.data);
+      return res.data;
+    } catch (error) {
+      if (error.response.status === 401) {
+        thunkAPI.dispatch(logOut());
+        Notiflix.Notify.failure('Invalid Session, login again');
+      }
+      Notiflix.Notify.failure(error.response.data.error.message);
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
