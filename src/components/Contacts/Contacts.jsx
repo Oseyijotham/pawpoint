@@ -103,84 +103,213 @@ export const Contacts = () => {
               </svg>
             </button>
 
-            <p className={css.detailsTitle}>PLACE DETAILS</p>
+            <div className={css.detailsTitleWrapper}>
+              <button
+                className={css.weather}
+                onClick={handleWeatherNav}
+                style={{
+                  backgroundColor: `
+    ${weatherConditions ? '#00bfff' : '#ffff'}
+  `,
+                }}
+              >
+                <img src={weather} alt="Weather" width="12" height="12" />
+              </button>
+              <p
+                className={css.detailsTitle}
+                onClick={handleDetailsNav}
+                style={{
+                  backgroundColor: `
+    ${placeDetails ? '#00bfff' : '#0b2a4a'}
+  `,
+                }}
+              >
+                PLACE DETAILS
+              </p>
+              <a
+                className={css.location}
+                name={myContact.id}
+                href={`https://www.google.com/maps?q=${myContact.geometry.coordinates[1]},${myContact.geometry.coordinates[0]}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={location} alt="Location" width="12" height="12" />
+              </a>
+            </div>
+            <div className={css.detailsCover}>
+              {isWeatherConditionsLoading && (
+                <div className={css.backDrop}>
+                  <ThreeCircles
+                    visible={true}
+                    height="60"
+                    width="60"
+                    color="#1e73d8"
+                    radius="9"
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{}}
+                    wrapperClass={css.loader}
+                  />
+                  {isWeatherConditionsLoading && (
+                    <p className={css.centerLabel}>
+                      Fetching current weather conditions
+                    </p>
+                  )}
+                </div>
+              )}
+            {placeDetails === true && (
+              <ul className={css.detailsWrapper}>
+                <li className={css.detailsItem}>
+                  <span className={css.detailsCover}>
+                    <span className={css.detailsInfo}>
+                      <span className={css.details}>Name:</span>{' '}
+                      <span className={css.detailsVal}>
+                        <i className={css.detail}>
+                          {myContact.properties.names.primary}
+                        </i>
+                      </span>
+                    </span>
+                  </span>
+                </li>
+                <li className={css.detailsItem}>
+                  <span className={css.detailsCover}>
+                    <span className={css.detailsInfo}>
+                      <span className={css.details}>Freeform:</span>{' '}
+                      <pre className={css.detailsDetailsVal}>
+                        <i className={css.detail}>
+                          {myContact.properties.addresses[0].freeform
+                            ? myContact.properties.addresses[0].freeform
+                            : 'Null'}
+                        </i>
+                      </pre>
+                    </span>
+                  </span>
+                </li>
+                <li className={css.detailsItem}>
+                  <span className={css.detailsCover}>
+                    <span className={css.detailsInfo}>
+                      <span className={css.details}>Locality:</span>{' '}
+                      <pre className={css.detailsDetailsVal}>
+                        <i className={css.detail}>
+                          {myContact.properties.addresses[0].locality
+                            ? myContact.properties.addresses[0].locality
+                            : 'Null'}
+                        </i>
+                      </pre>
+                    </span>
+                  </span>
+                </li>
+                <li className={css.detailsItem}>
+                  <span className={css.detailsCover}>
+                    <span className={css.detailsInfo}>
+                      <span className={css.details}>Postal Code:</span>{' '}
+                      <pre className={css.detailsDetailsVal}>
+                        <i className={css.detail}>
+                          {myContact.properties.addresses[0].postcode
+                            ? myContact.properties.addresses[0].postcode
+                            : 'Null'}
+                        </i>
+                      </pre>
+                    </span>
+                  </span>
+                </li>
+                <li className={css.detailsItem}>
+                  <span className={css.detailsCover}>
+                    <span className={css.detailsInfo}>
+                      <span className={css.details}>Region and Country:</span>{' '}
+                      <span className={css.detailsValPhone}>
+                        <i>
+                          {myContact.properties.addresses[0].region
+                            ? myContact.properties.addresses[0].region
+                            : 'Null'}
+                          ,{' '}
+                        </i>
+                        <i>
+                          {myContact.properties.addresses[0].country
+                            ? myContact.properties.addresses[0].country
+                            : 'Null'}
+                        </i>
+                      </span>
+                    </span>
+                  </span>
+                </li>
+              </ul>
+            )}
 
-            <ul className={css.detailsWrapper}>
-              <li className={css.detailsItem}>
-                <span className={css.detailsCover}>
-                  <span className={css.detailsInfo}>
-                    <span className={css.details}>Name:</span>{' '}
-                    <span className={css.detailsVal}>
-                      <i className={css.detail}>
-                        {myContact.properties.names.primary}
-                      </i>
+            {weatherConditions === true && (
+              <ul className={css.conditionsWrapper}>
+                <li className={css.detailsItem}>
+                  <span className={css.detailsCover}>
+                    <span className={css.detailsInfo}>
+                      <span className={css.details}>Outdoor Conditions:</span>{' '}
+                      <span className={css.detailsVal}>
+                        <i className={css.detail}>
+                          {weatherConditionDetails[0].WeatherText}
+                        </i>
+                      </span>
                     </span>
                   </span>
-                </span>
-              </li>
-              <li className={css.detailsItem}>
-                <span className={css.detailsCover}>
-                  <span className={css.detailsInfo}>
-                    <span className={css.details}>Freeform:</span>{' '}
-                    <pre className={css.detailsDetailsVal}>
-                      <i className={css.detail}>
-                        {myContact.properties.addresses[0].freeform
-                          ? myContact.properties.addresses[0].freeform
-                          : 'Null'}
-                      </i>
-                    </pre>
-                  </span>
-                </span>
-              </li>
-              <li className={css.detailsItem}>
-                <span className={css.detailsCover}>
-                  <span className={css.detailsInfo}>
-                    <span className={css.details}>Locality:</span>{' '}
-                    <pre className={css.detailsDetailsVal}>
-                      <i className={css.detail}>
-                        {myContact.properties.addresses[0].locality
-                          ? myContact.properties.addresses[0].locality
-                          : 'Null'}
-                      </i>
-                    </pre>
-                  </span>
-                </span>
-              </li>
-              <li className={css.detailsItem}>
-                <span className={css.detailsCover}>
-                  <span className={css.detailsInfo}>
-                    <span className={css.details}>Postal Code:</span>{' '}
-                    <pre className={css.detailsDetailsVal}>
-                      <i className={css.detail}>
-                        {myContact.properties.addresses[0].postcode
-                          ? myContact.properties.addresses[0].postcode
-                          : 'Null'}
-                      </i>
-                    </pre>
-                  </span>
-                </span>
-              </li>
-              <li className={css.detailsItem}>
-                <span className={css.detailsCover}>
-                  <span className={css.detailsInfo}>
-                    <span className={css.details}>Region and Country:</span>{' '}
-                    <span className={css.detailsValPhone}>
-                      <i>
-                        {myContact.properties.addresses[0].region
-                          ? myContact.properties.addresses[0].region
-                          : 'Null'}
-                        ,{' '}
-                      </i>
-                      <i>
-                        {myContact.properties.addresses[0].country
-                          ? myContact.properties.addresses[0].country
-                          : 'Null'}
-                      </i>
+                </li>
+                <li className={css.detailsItem}>
+                  <span className={css.detailsCover}>
+                    <span className={css.detailsInfo}>
+                      <span className={css.details}>Time of Day:</span>{' '}
+                      <span className={css.detailsVal}>
+                        {weatherConditionDetails[0].IsDayTime === true ? (
+                          <i className={css.detail}>Day</i>
+                        ) : (
+                          <i className={css.detail}>Night</i>
+                        )}
+                      </span>
                     </span>
                   </span>
-                </span>
-              </li>
-            </ul>
+                </li>
+                <li className={css.detailsItem}>
+                  <span className={css.detailsCover}>
+                    <span className={css.detailsInfo}>
+                      <span className={css.details}>Precipitation:</span>{' '}
+                      <span className={css.detailsVal}>
+                        {weatherConditionDetails[0].HasPrecipitation ===
+                        true ? (
+                          <i className={css.detail}>Yes</i>
+                        ) : (
+                          <i className={css.detail}>No</i>
+                        )}
+                      </span>
+                    </span>
+                  </span>
+                </li>
+                <li className={css.detailsItem}>
+                  <span className={css.detailsCover}>
+                    <span className={css.detailsInfo}>
+                      <span className={css.details}>Temperature:</span>{' '}
+                      <span className={css.detailsVal}>
+                        <i className={css.detail}>
+                          {`${weatherConditionDetails[0].Temperature.Metric.Value}°${weatherConditionDetails[0].Temperature.Metric.Unit}`}
+                        </i>
+                      </span>
+                    </span>
+                  </span>
+                </li>
+                <li className={css.detailsItem}>
+                  <span className={css.detailsCover}>
+                    <span className={css.detailsInfo}>
+                      <span className={css.details}>View full forecast:</span>{' '}
+                      <span className={css.detailsVal}>
+                        <a
+                          href={weatherConditionDetails[0].Link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={css.detail}
+                        >
+                          Click Here →
+                        </a>
+                      </span>
+                    </span>
+                  </span>
+                </li>
+              </ul>
+              )}
+              </div>
           </div>
         </div>
       )}

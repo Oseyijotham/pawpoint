@@ -78,6 +78,13 @@
   border: 2px solid #fff;
 }
 
+@media screen and (max-width:768px){
+  .closeModal{
+   top:5px;
+  }
+
+}
+
 .weather {
   border-radius: 50%;
   cursor: pointer;
@@ -113,6 +120,12 @@
   align-items: center;
   justify-content: center;
   gap:10px;
+}
+
+@media screen and (max-width:768px) {
+  .detailsTitleWrapper{
+gap:0px;
+  }
 }
 
 
