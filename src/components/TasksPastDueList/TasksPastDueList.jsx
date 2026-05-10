@@ -93,7 +93,11 @@ export const TasksPastDueList = ({ children }) => {
       {children}
       <div className={css.contactsListAlt}>
         <p>API DETAILS</p>
-      
+        <div style={{
+          color: '#ffff'
+        }}>
+          <code>const apiDetails: fetch(key)</code>
+      </div>
       </div>
 
       {pastDueRay.length !== 0 && (

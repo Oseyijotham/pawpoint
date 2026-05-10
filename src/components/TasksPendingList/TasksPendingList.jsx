@@ -10,7 +10,10 @@ import {
   selectDogPics,
   selectDogPageNums
 } from '../../redux/AppRedux/selectors';
-import {fetchMoreDogPics, fetchDogPics} from '../../redux/AppRedux/operations';
+import {
+  fetchMoreDogPics,
+  saveDogImage,
+} from '../../redux/AppRedux/operations';
 import css from './TasksPendingList.module.css';
 import { Loader } from '../dogLoader/Loader';
 
@@ -28,7 +31,17 @@ export const TasksPendingList = ({ children }) => {
       const storeVar = dogPageNums + 1;
   
       dispatch(fetchMoreDogPics({ pageNum: storeVar }));
-    }
+  }
+  
+   const handleSave = (imageFile, evt) => {
+        evt.target.style.boxShadow = 'inset 0 0 10px 5px rgba(0, 0, 0, 0.3)';
+  
+        setTimeout(() => {
+          evt.target.style.boxShadow = 'none';
+        }, 2000);
+  
+        dispatch(saveDogImage({ data: imageFile }));
+      };
 
   useEffect(() => {
     const lightbox = new SimpleLightbox('.gallery a', {
@@ -69,18 +82,24 @@ export const TasksPendingList = ({ children }) => {
               <a href={pic.url}>
                 <img className={css.catImage} src={pic.url} alt="" />
               </a>
+              <button
+                className={css.saver}
+                onClick={evt => handleSave(pic, evt)}
+              >
+                Save
+              </button>
             </li>
           ))}
         </ul>
       </div>
 
-        <div>
-              {dogPics.length !== 0 ? (
-                <button onClick={handleGalleryButtonPress} className={css.loadBtn}>
-                  Load More
-                </button>
-              ) : null}
-            </div>
+      <div>
+        {dogPics.length !== 0 ? (
+          <button onClick={handleGalleryButtonPress} className={css.loadBtn}>
+            Load More
+          </button>
+        ) : null}
+      </div>
     </div>
   );
 };

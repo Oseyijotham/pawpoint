@@ -1150,3 +1150,77 @@ export const fetchWeatherKey = createAsyncThunk(
     }
   }
 );
+
+export const saveCatImage = createAsyncThunk(
+  'image/saveCatImage',
+  async ({ data }, thunkAPI) => {
+    Notiflix.Loading.pulse('Adding Image to your API Database', {
+      svgColor: '#1e73d8',
+      fontFamily: 'DM Sans',
+    });
+    try {
+      console.log(data);
+      const res = await axios.post(`/cats/saveImage`, {
+        data,
+      });
+
+      Notiflix.Loading.remove();
+      //return res.data;
+      return res.data;
+    } catch (error) {
+      Notiflix.Notify.failure(error.response.data.error.message);
+      Notiflix.Loading.remove();
+      if (error.response.status === 401) {
+        thunkAPI.dispatch(logOut());
+        Notiflix.Notify.failure('Invalid Session, login again');
+      }
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
+export const saveDogImage = createAsyncThunk(
+  'image/saveDogImage',
+  async ({ data }, thunkAPI) => {
+    Notiflix.Loading.pulse('Adding Image to your API Database', {
+      svgColor: '#1e73d8',
+      fontFamily: 'DM Sans',
+    });
+    try {
+      console.log(data);
+      const res = await axios.post(`/dogs/saveImage`, {
+        data,
+      });
+
+      Notiflix.Loading.remove();
+      //return res.data;
+      return res.data;
+    } catch (error) {
+      Notiflix.Notify.failure(error.response.data.error.message);
+      Notiflix.Loading.remove();
+      if (error.response.status === 401) {
+        thunkAPI.dispatch(logOut());
+        Notiflix.Notify.failure('Invalid Session, login again');
+      }
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
+/*
+ export const updateStatus = createAsyncThunk(
+   'tasks/updateStatus',
+   async ({ data }, thunkAPI) => {
+     try {
+       const res =  await axios.post(`/places/saveplace`, {
+         
+         data
+       });
+       console.log(res.data);
+       
+       return res.data;
+     } catch (e) {
+       return thunkAPI.rejectWithValue(null);
+     }
+   }
+);     */

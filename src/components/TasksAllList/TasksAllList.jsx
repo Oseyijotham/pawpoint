@@ -10,7 +10,11 @@ import {
   selectCatPics,
   selectCatPageNums,
 } from '../../redux/AppRedux/selectors';
-import {fetchMoreCatPics, fetchCatPics} from '../../redux/AppRedux/operations';
+import {
+  fetchMoreCatPics,
+  fetchCatPics,
+  saveCatImage,
+} from '../../redux/AppRedux/operations';
 import css from './TasksAllList.module.css';
 import { Loader } from '../Loader/Loader';
 
@@ -29,6 +33,18 @@ export const TasksAllList = ({ children }) => {
 
     dispatch(fetchMoreCatPics({ pageNum: storeVar }));
   }
+
+    const handleSave = (imageFile, evt) => {
+      evt.target.style.boxShadow = 'inset 0 0 10px 5px rgba(0, 0, 0, 0.3)';
+
+      setTimeout(() => {
+        evt.target.style.boxShadow = 'none';
+      }, 2000);
+
+      dispatch(saveCatImage({ data: imageFile }));
+    };
+
+   
 
   useEffect(() => {
     const lightbox = new SimpleLightbox('.gallery a', {
@@ -71,6 +87,12 @@ export const TasksAllList = ({ children }) => {
               <a href={pic.url}>
                 <img className={css.catImage} src={pic.url} alt="" />
               </a>
+              <button
+                className={css.saver}
+                onClick={evt => handleSave(pic, evt)}
+              >
+                Save
+              </button>
             </li>
           ))}
         </ul>

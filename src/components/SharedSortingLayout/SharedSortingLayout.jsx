@@ -125,7 +125,7 @@ export const SharedSortingLayout = () => {
           View Dog Images
         </Link>
         <Link to="savedPlaces" onClick={handleSortFulfilled}>
-          Add Places
+          Update Places
         </Link>
         <Link to="apiDocumentation" onClick={handleSortPastDue}>
           See Documentation
