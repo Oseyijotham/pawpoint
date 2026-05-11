@@ -10,7 +10,7 @@
 }
 
 .sortedWrapper{
-  width:100%;
+  width:98%;
   border-radius: 30px;
   transform: translateX(0%);
   transition: transform 1250ms cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -28,7 +28,7 @@
   align-items: center;
   justify-content:center;
   position: relative;
-  padding-top: 5px;
+   padding-top: 5px;
   padding-bottom: 5px;
   transition: padding 1250ms cubic-bezier(0.25, 0.1, 0.25, 1);
 }
@@ -44,10 +44,9 @@
 .contactsDetailsHide{
   display: none;
   text-align: center;
-  background-image: linear-gradient(to top left, #ffb800, #9225ff);
+  background-color: #1e73d8;
   position: absolute;
     width: 550px;
-    bottom: 5%;
     border-radius: 30px;
     padding: 10px;
     transform: translateX(0%);
@@ -60,7 +59,7 @@
 
 @media screen and (min-width:768px){
   .contactsDetailsHide{
-    display: flex;
+   display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
@@ -81,7 +80,7 @@
   border-radius: 50%;
   cursor: pointer;
   padding: 8px;
-  background-color:#9225ff;
+  background-color:#0b2a4a;
   fill: #fff;
   display: flex;
   align-items: center;
@@ -90,7 +89,7 @@
 }
 
 .closeModal:hover {
-   background-color:#ffb800;
+   background-color:#00bfff;
 }
 
 .contactsDetailsArea{
@@ -105,10 +104,9 @@
   padding: 5px;
 }
 
-
 .detailsTitle{
-  box-shadow: inset 0 0 10px 2px #9225ff;
-    background-color: #280a46;
+  box-shadow: inset 0 0 10px 2px #00bfff;
+    background-color: #0b2a4a;
     color: #fff;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
@@ -116,7 +114,7 @@
     padding: 5px;
     margin: 5px;
     border-radius: 30px;
-    border: 2px solid #ffb800;
+    border: 2px solid #ffff;
     font-weight: 700;
 }
 
@@ -131,7 +129,6 @@ font-size: 16px;
 font-size: 26px;
   }
 }
-
 
 .detailsSection{
   padding: 10px;
@@ -168,8 +165,8 @@ font-size: 26px;
   color: #fff;
   font-family: 'DM Sans';
   font-weight: 700;
-  font-size: 13px;
-  background-image: linear-gradient(to top left, #ffb800, #9225ff);
+   font-size: 13px;
+  background-color: #0b2a4a;
   border: 1px solid #fff;
   cursor: pointer;
   display: inline-block;
@@ -180,10 +177,6 @@ font-size: 26px;
   .detailsImageInput{
      font-size: 16px;
   }
-}
-
-.detailsImageInput:hover{
-   background-image: linear-gradient(to bottom right, #9225ff, #ffb800);
 }
 
 .detailsSectionTitle{
@@ -198,10 +191,8 @@ font-size: 26px;
 }
 
 .detailsWrapper{
-  /*background-image: linear-gradient(to bottom, #c4253a 40%, #ffb8ca);*/
-  /*background-color: #c4253a;*/
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 3px;
+  padding-right: 3px;
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 30px;
@@ -218,6 +209,7 @@ font-size: 26px;
 @media screen and (max-width:767px) {
   .detailsWrapper{
     font-size: 13px;
+    width: 300px
   }
 }
 
@@ -236,7 +228,7 @@ color: #fff;
 border-radius: 30px;
 box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
 border: 1px solid #fff;
-background-color: #280a46;
+background-color: #0b2a4a;
 }
 
 @media screen and (max-width:767px) {
@@ -259,23 +251,20 @@ background-color: #280a46;
  border-radius: 30px;
  padding: 10px;
  border: 1px solid #fff;
- background-image: linear-gradient(to top left, #ffb800, #9225ff);
 }
 
 .detailsInfo{
   display: flex;
   align-items: center;
   gap:3px;
-  background-color: #280a46;
   border-radius: 10px;
   padding:5px;
   border: 1px solid #fff;
-  box-shadow: inset 0 0 10px 2px #9225ff;
+  box-shadow: inset 0 0 10px 2px #00bfff;
   text-align: start;
 }
 
 .details{
- 
   font-weight: 700;
 }
 
@@ -284,9 +273,10 @@ background-color: #280a46;
   padding: 5px;
   border-radius: 10px;
   border: 1px solid #fff;
-  background-color:#9225ff;
+  background-color:#1e73d8;
   width: 120px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 @media screen and (max-width: 767px) {
@@ -297,15 +287,10 @@ background-color: #280a46;
 
 @media (min-width: 768px) {
   .detailsVal{
-  width: 350px;
+  width: 320px;
 }
 }
 
-@media (min-width: 1280px) {
-  .detailsVal{
-    width: 100%;
-  }
-}
 
 .detailsDetailsVal{
   padding: 5px;
@@ -351,7 +336,7 @@ background-color: #280a46;
 .detailsValInput{
   padding: 5px;
   border-radius: 10px;
-  background-color: #9225ff ;
+  background-color: #1e73d8;
   border: 1px solid #fff;
   box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.3);
   color: #fff;
@@ -463,13 +448,13 @@ background-color: #280a46;
     cursor: pointer;
     border: none;
     color: #fff;
-    background-color: #9225ff;
+    background-color: #0b2a4a;
     border: 1px solid #fff;
 }
 
 .detailButton:hover{
 color: #fff;
-background-color: #ffb800 ;
+background-color: #00bfff;
 }
 
 .buttonWrapper{
@@ -483,7 +468,7 @@ background-color: #ffb800 ;
   border-radius: 50%;
   cursor: pointer;
   padding: 4px;
-  background: #9225ff;
+  background-color: #0b2a4a;
   fill: #fff;
   display: flex;
   align-items: center;
@@ -492,7 +477,7 @@ background-color: #ffb800 ;
 }
 
 .detailsEditClose:hover{
-background-color: #ffb800 ;
+background-color: #00bfff;
 }
 
 .backdrop {
@@ -523,7 +508,7 @@ background-color: #ffb800 ;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to top left, #ffb800, #9225ff);
+  background-color: #1e73d8;
   position: relative;
   border-radius: 30px;
 }

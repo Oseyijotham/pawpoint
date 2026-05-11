@@ -1,50 +1,54 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { selectPlaces } from '../../redux/AppRedux/selectors';
 import {
-  selectContactsFilter,
   selectFilterDown,
   selectError,
-  selectIsLoading,
-  selectKey,
-  selectKeyName,
-  selectKeyId,
-  selectKeyDate
+  selectIsSavedPlacesLoading,
+  selectIsDeletePlacesLoading,
+  selectSavedPlaces,
 } from '../../redux/AppRedux/selectors';
 import {
-  deleteContact,
+  deletePlaces,
   openSortedPastDueModal,
-  fetchSortedPastDueContactById,
-  updateStatus,
   openPastDueMobileAndTabModal,
+  fetchSavedPlaceById,
 } from '../../redux/AppRedux/operations';
 import css from './TasksPastDueList.module.css';
+import { ThreeCircles } from 'react-loader-spinner';
+import icons from './icons.svg';
+import endpointNames from '../Options/endpoints.json';
+
 export const TasksPastDueList = ({ children }) => {
-  const myKey = useSelector(selectKey);
-  const myKeyName = useSelector(selectKeyName);
-  const myKeyId = useSelector(selectKeyId);
+  const [isTrue, setIfTrue] = useState(true);
+  const savedPlaces = useSelector(selectSavedPlaces);
+  const isSavedPlacesLoading = useSelector(selectIsSavedPlacesLoading);
+  const isDeletePlacesLoading = useSelector(selectIsDeletePlacesLoading);
+  const error = useSelector(selectError);
   const dispatch = useDispatch();
+
   const handleDelete = evt => {
     evt.target.style.boxShadow = 'inset 0 0 10px 5px rgba(0, 0, 0, 0.3)';
     setTimeout(() => {
       evt.target.style.boxShadow = 'none';
     }, 1000);
-    dispatch(deleteContact(evt.target.name));
+    dispatch(deletePlaces(evt.target.name));
+    
   };
-  const filterValue = useSelector(selectContactsFilter);
 
   const handleModalOpen = (evt) => {
     if (evt.target.getAttribute('data-id')) {
+
       const id = evt.currentTarget.getAttribute('data-id');
-      dispatch(fetchSortedPastDueContactById(id));
+      
+      dispatch(fetchSavedPlaceById(id));
       dispatch(openSortedPastDueModal());
       dispatch(openPastDueMobileAndTabModal());
     }
   };
   const [lowerLimit, setLowerLimit] = useState(0);
   const [upperLimit, setUpperLimit] = useState(4);
-  const [newRay, setNewRay] = useState([]);
 
 
   const handleForward = (evt) => {
@@ -55,6 +59,7 @@ export const TasksPastDueList = ({ children }) => {
     
       setLowerLimit(lowerLimit + 4);
       setUpperLimit(upperLimit + 4);
+    
   }
 
   const handleBackward = (evt) => {
@@ -62,94 +67,77 @@ export const TasksPastDueList = ({ children }) => {
      setTimeout(() => {
        evt.target.style.boxShadow = 'none';
      }, 500);
-    //let fwdWar = lowerLimit + 4;
     
       setLowerLimit(lowerLimit - 4);
       setUpperLimit(upperLimit - 4);
-    
-    /*if (filterValue !== '') {
-      const str1 = filterUp;
-      const sto1 = filterDown;
-       dispatch(handleFilterBackwardUp(str1));
-       dispatch(handleFilterBackwardDown(sto1));
-     }*/
   };
   
-  const handleChange = (evt) => {
-    dispatch(updateStatus({ status: evt.target.checked, myUpdateStatusId:evt.target.name}));
-  }
-
-  
-  const pastDueRay = newRay.filter(contact => {
-    const nowSortDate = new Date();
-    //return contact.status === false;
-    return nowSortDate > new Date(contact.dueDate) && contact.status === false;
-  });
-
+ 
 
   return (
     <div className={css.contactsSection}>
-      <h3 className={css.contactsTitle}>Documentation</h3>
+      <h3 className={css.contactsTitle}>API Documentation</h3>
       {children}
-      <div className={css.contactsListAlt}>
-        <p>API DETAILS</p>
-        <div style={{
-          color: '#ffff'
-        }}>
-          <code>const apiDetails: fetch(key)</code>
-      </div>
-      </div>
+      <div style={{ position: 'relative' }}>
+        {(isSavedPlacesLoading || isDeletePlacesLoading) && (
+          <div className={css.backDrop}>
+            <div className={css.centerStyle}>
+              <ThreeCircles
+                visible={true}
+                height="60"
+                width="60"
+                color="#1e73d8"
+                radius="9"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClass={css.loader}
+              />
+              {isSavedPlacesLoading && (
+                <p className={css.centerLabel}>Fetching your saved places</p>
+              )}
+              {isDeletePlacesLoading && (
+                <p className={css.centerLabel}>
+                  Removing place from your API Database, hold on a bit
+                </p>
+              )}
+            </div>
+          </div>
+        )}
 
-      {pastDueRay.length !== 0 && (
-        <ul className={css.contactsList}>
-          {pastDueRay.map(contact => {
-            const myindex = pastDueRay.indexOf(contact);
-            if (myindex >= lowerLimit && myindex < upperLimit) {
-              return (
-                <li
-                  key={contact._id}
-                  data-id={contact._id}
-                  className={css.contactsItem}
-                  onClick={handleModalOpen}
-                >
-                  <span className={css.contactsData} data-id={contact._id}>
-                    <input
-                      type="checkbox"
-                      className={css.checkbox}
-                      checked={contact.status}
-                      name={contact._id}
-                      onChange={handleChange}
-                    />
-                    :{' '}
-                    <span className={css.contactsPhone} data-id={contact._id}>
-                      {contact.name}
+        {savedPlaces.length !== 0 && (
+          <ul className={css.contactsList}>
+            {console.log(savedPlaces)}
+            {endpointNames.map(name => {
+              const myindex = endpointNames.indexOf(name);
+              if (myindex >= lowerLimit && myindex < upperLimit) {
+                return (
+                  <li
+                    data-id={name.id}
+                    className={css.contactsItem}
+                    onClick={handleModalOpen}
+                  >
+                    <span className={css.contactsData}>
+                      <span className={css.contactsPhone}>
+                        {name.name}
+                      </span>
                     </span>
-                  </span>
-                  <span className={css.contactsButtonArea}>
-                    <button
-                      type="submit"
-                      className={css.contactsButton}
-                      name={contact._id}
-                      onClick={handleDelete}
-                    >
-                      Delete
-                    </button>
-                  </span>
-                </li>
-              );
-            }
-          })}
-        </ul>
-      )}
 
+                  </li>
+                );
+              }
+            })}
+          </ul>
+        )}
+
+      </div>
       <div className={css.navigationArea}>
         {lowerLimit !== 0 && (
           <button className={css.navigationButton} onClick={handleBackward}>
             Prev
           </button>
         )}
-        {!(upperLimit > pastDueRay.length) &&
-          upperLimit !== pastDueRay.length && (
+        {!(upperLimit > endpointNames.length) &&
+          upperLimit !== endpointNames.length && (
             <button className={css.navigationButton} onClick={handleForward}>
               Forward
             </button>
