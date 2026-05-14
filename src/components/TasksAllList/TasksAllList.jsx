@@ -60,7 +60,7 @@ export const TasksAllList = ({ children }) => {
     };
   }, [catPics]);
 
- 
+  useEffect(() => { console.log(catPics)}, []);
 
   return (
     <div className={css.contactsSection}>
@@ -93,6 +93,7 @@ export const TasksAllList = ({ children }) => {
               >
                 Save
               </button>
+              {console.log(catPics)}
             </li>
           ))}
         </ul>

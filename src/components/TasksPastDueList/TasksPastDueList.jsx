@@ -13,7 +13,7 @@ import {
   deletePlaces,
   openSortedPastDueModal,
   openPastDueMobileAndTabModal,
-  fetchSavedPlaceById,
+  fetchEndpointById,
 } from '../../redux/AppRedux/operations';
 import css from './TasksPastDueList.module.css';
 import { ThreeCircles } from 'react-loader-spinner';
@@ -42,7 +42,7 @@ export const TasksPastDueList = ({ children }) => {
 
       const id = evt.currentTarget.getAttribute('data-id');
       
-      dispatch(fetchSavedPlaceById(id));
+      dispatch(fetchEndpointById(id));
       dispatch(openSortedPastDueModal());
       dispatch(openPastDueMobileAndTabModal());
     }
@@ -76,35 +76,9 @@ export const TasksPastDueList = ({ children }) => {
 
   return (
     <div className={css.contactsSection}>
-      <h3 className={css.contactsTitle}>API Documentation</h3>
+      <h3 className={css.contactsTitle}>API ENDPOINTS</h3>
       {children}
       <div style={{ position: 'relative' }}>
-        {(isSavedPlacesLoading || isDeletePlacesLoading) && (
-          <div className={css.backDrop}>
-            <div className={css.centerStyle}>
-              <ThreeCircles
-                visible={true}
-                height="60"
-                width="60"
-                color="#1e73d8"
-                radius="9"
-                ariaLabel="three-dots-loading"
-                wrapperStyle={{}}
-                wrapperClass={css.loader}
-              />
-              {isSavedPlacesLoading && (
-                <p className={css.centerLabel}>Fetching your saved places</p>
-              )}
-              {isDeletePlacesLoading && (
-                <p className={css.centerLabel}>
-                  Removing place from your API Database, hold on a bit
-                </p>
-              )}
-            </div>
-          </div>
-        )}
-
-        {savedPlaces.length !== 0 && (
           <ul className={css.contactsList}>
             {console.log(savedPlaces)}
             {endpointNames.map(name => {
@@ -112,22 +86,22 @@ export const TasksPastDueList = ({ children }) => {
               if (myindex >= lowerLimit && myindex < upperLimit) {
                 return (
                   <li
+                    key={name.id}
                     data-id={name.id}
                     className={css.contactsItem}
                     onClick={handleModalOpen}
                   >
-                    <span className={css.contactsData}>
-                      <span className={css.contactsPhone}>
+                    <span data-id={name.id} className={css.contactsData}>
+                      <span data-id={name.id} className={css.contactsPhone}>
                         {name.name}
                       </span>
                     </span>
-
                   </li>
                 );
               }
             })}
           </ul>
-        )}
+        
 
       </div>
       <div className={css.navigationArea}>

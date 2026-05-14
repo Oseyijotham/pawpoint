@@ -66,6 +66,7 @@ import {
   deletePlaces,
   fetchSavedPlaceById,
   fetchWeatherKey,
+  fetchEndpointById,
 } from './operations';
 
 import { clearData } from '../AuthRedux/operations';
@@ -117,7 +118,7 @@ const contactsSlice = createSlice({
       openMyPastDueModal: false,
       weatherConditions:[],
       selectedContact: {
-        geometry: { coordinates:[] },
+        geometry: { coordinates:[0,1] },
         properties: {
           names: { primary: null },
           addresses: [{}],
@@ -132,6 +133,10 @@ const contactsSlice = createSlice({
             socials: [],
           },
         },
+      },
+       selectedEndpoint: {
+        id:null,
+        name: null,
       },
       selectedSortedAllContact: {
         name: null,
@@ -215,6 +220,10 @@ const contactsSlice = createSlice({
       .addCase(fetchCatPics.rejected, state => {
         state.contacts.isCatPicsLoading = false;
         state.contacts.error = true;
+      })
+
+      .addCase(fetchEndpointById.fulfilled, (state, action) => {
+        state.contacts.selectedEndpoint = action.payload;
       })
 
       .addCase(fetchWeatherKey.pending, state => {

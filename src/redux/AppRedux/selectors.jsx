@@ -54,6 +54,8 @@ export const selectedContact = state => state.contacts.contacts.selectedContact;
 
 export const selectedSavedPlace = state => state.contacts.contacts.selectedSavedPlace;
 
+export const selectedSelectedEndpoint = state => state.contacts.contacts.selectedEndpoint;
+
 export const selectedSortedAllContact = state => state.contacts.contacts.selectedSortedAllContact;
 
 export const selectedSortedPendingContact = state => state.contacts.contacts.selectedSortedPendingContact;

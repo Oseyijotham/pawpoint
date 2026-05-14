@@ -3,6 +3,7 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import { cache } from 'react';
 import { clearData } from '../AuthRedux/operations';
+import endpointNames from './endpoints.json';
 
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
@@ -1202,6 +1203,23 @@ export const saveDogImage = createAsyncThunk(
         thunkAPI.dispatch(logOut());
         Notiflix.Notify.failure('Invalid Session, login again');
       }
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
+export const fetchEndpointById = createAsyncThunk(
+  'endpoints/oneEndPoint',
+  async (id, thunkAPI) => {
+    try {
+      const myObj = endpointNames.find(endpoint => endpoint.id === id);
+      return myObj;
+    } catch (error) {
+      if (error.response.status === 401) {
+        thunkAPI.dispatch(logOut());
+        Notiflix.Notify.failure('Invalid Session, login again');
+      }
+      Notiflix.Notify.failure(error.response.data.error.message);
       return thunkAPI.rejectWithValue(null);
     }
   }
