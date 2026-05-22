@@ -1285,12 +1285,12 @@ export const fetchSavedCatPics = createAsyncThunk(
         fontFamily: 'DM Sans',
       });
       const response = await fetch(
-        `http://localhost:8001/api/places/catpicsApi`,
+        `http://localhost:8001/api/cats/catpicsApi`,
         {
           method: 'GET',
           headers: {
             accept: 'application/json',
-            'x-api-key': apiKey
+            'x-api-key': apiKey,
           },
         }
       );
@@ -1315,12 +1315,12 @@ export const fetchSavedDogPics = createAsyncThunk(
         fontFamily: 'DM Sans',
       });
       const response = await fetch(
-        `http://localhost:8001/api/places/dogpicsApi`,
+        `http://localhost:8001/api/dogs/dogpicsApi`,
         {
           method: 'GET',
           headers: {
             accept: 'application/json',
-            'x-api-key': apiKey
+            'x-api-key': apiKey,
           },
         }
       );
@@ -1337,16 +1337,45 @@ export const fetchSavedDogPics = createAsyncThunk(
 );
 
 export const deleteCatImage = createAsyncThunk(
-  'images/deleteCatImage', 
-  async ({id, apiKey}, thunkAPI) => {
-    
+  'images/deleteCatImage',
+  async ({ id, apiKey }, thunkAPI) => {
     try {
       Notiflix.Loading.pulse('Deleting Cat Image...', {
         svgColor: '#00bfff',
         fontFamily: 'DM Sans',
       });
       const response = await fetch(
-        `http://localhost:8001/api/places/dogpicsApi/${id}`,
+        `http://localhost:8001/api/cats/removeCatimageApi/${id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            accept: 'application/json',
+            'x-api-key': apiKey,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      Notiflix.Loading.remove();
+      return data;
+    } catch (error) {
+      Notiflix.Notify.failure(error.response.data.error.message);
+      Notiflix.Loading.remove();
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
+export const deleteDogImage = createAsyncThunk(
+  'images/deleteDogImage',
+  async ({ id, apiKey }, thunkAPI) => {
+    try {
+      Notiflix.Loading.pulse('Deleting Dog Image...', {
+        svgColor: '#00bfff',
+        fontFamily: 'DM Sans',
+      });
+      const response = await fetch(
+        `http://localhost:8001/api/dogs/removeDogimageApi/${id}`,
         {
           method: 'DELETE',
           headers: {

@@ -6,7 +6,8 @@ import {
   fetchSavedPlaces,
   updatePlaceDetails,
   fetchSavedCatPics,
-  fetchSavedDogPics
+  fetchSavedDogPics,
+  deleteCatImage,
 } from '../../redux/AppRedux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
@@ -24,7 +25,8 @@ import {
   selectEndpointOne,
   selectEndpointTwo,
   selectEndpointFour,
-  selectEndpointFive
+  selectEndpointFive,
+  selectEndpointSix,
 } from '../../redux/AppRedux/selectors';
 import css from './SortedPastDueTasks.module.css';
 import svg from './icons.svg';
@@ -39,6 +41,7 @@ export const Contacts = () => {
   const sectionRef = useRef(null);
   const [placeId, setPlaceId] = useState('%20');
   const [description, setDescription] = useState('%20');
+  const [catImageId, setCatImageId] = useState('%20');
    const myEndpoint = useSelector(selectedSelectedEndpoint);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
@@ -52,6 +55,7 @@ export const Contacts = () => {
   const endPointTwo = useSelector(selectEndpointTwo);
   const endPointFour = useSelector(selectEndpointFour);
   const endPointFive = useSelector(selectEndpointFive);
+  const endPointSix = useSelector(selectEndpointSix);
 
   
   
@@ -67,6 +71,9 @@ export const Contacts = () => {
   const jsonDataFour = JSON.stringify(endPointFour, null, 2);
 
   const jsonDataFive = JSON.stringify(endPointFive, null, 2);
+
+  const jsonDataSix = JSON.stringify(endPointSix, null, 2);
+
 
 
  const handleModalClose = () => {
@@ -103,6 +110,21 @@ export const Contacts = () => {
   const handleFifthPoint = () => {
     dispatch(fetchSavedDogPics(apiKey));
   };
+
+   const handleCatImageIdInput = evt => {
+     setCatImageId(evt.target.value);
+   };
+
+  const handleSixthPoint = () => {
+    if (catImageId.trim() === '%20') {
+      Notiflix.Notify.warning("Enter the Image ID");
+    }
+    else{
+      dispatch(deleteCatImage({ id: catImageId, apiKey: apiKey }));
+    }
+  };
+
+  
 
   
   
@@ -402,7 +424,7 @@ export const Contacts = () => {
                   border: '1px solid #ffff',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/places/catpicsApi', {
+                {`fetch('https://pawpoint-backend.onrender.com/api/cats/catpicsApi', {
       method: "GET",
       headers: {
         "accept": "application/json",
@@ -459,7 +481,7 @@ export const Contacts = () => {
                   border: '1px solid #ffff',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/places/dogpicsApi', {
+                {`fetch('https://pawpoint-backend.onrender.com/api/dogs/dogpicsApi', {
       method: "GET",
       headers: {
         "accept": "application/json",
@@ -501,7 +523,67 @@ export const Contacts = () => {
 
         {myEndpoint.id === '6' && (
           <ul className={css.detailsWrapper}>
-            <li className={css.detailsItem}>Sixth</li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="javascript"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '140px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {`fetch('https://pawpoint-backend.onrender.com/api/cats/removeCatimageApi/${placeId}', {
+      method: "DELETE",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey}
+      }
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+              </SyntaxHighlighter>
+            </li>
+            <li className={css.formItem}>
+              <input
+                type="text"
+                className={css.detailsValInput}
+                required
+                onChange={handleCatImageIdInput}
+                name="Cat Image ID"
+                placeholder="Cat Image ID"
+              />
+              <button
+                style={{ width: '205px', borderRadius: '10px' }}
+                className={css.detailsItemButton}
+                onClick={handleSixthPoint}
+              >
+                Send
+              </button>
+            </li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="json"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '140px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {jsonDataSix}
+              </SyntaxHighlighter>
+            </li>
           </ul>
         )}
 

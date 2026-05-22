@@ -20,10 +20,10 @@
   },
   {
     "id":   "6",
-    "name": "Delete a Dog Image"
+    "name": "Delete a Cat Image"
   },
   {
     "id":   "7",
-    "name": "Delete a Cat Image"
+    "name": "Delete a Dog Image"
   }
 ]
