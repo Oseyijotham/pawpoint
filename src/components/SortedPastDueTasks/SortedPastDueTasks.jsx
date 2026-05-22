@@ -2,20 +2,29 @@ import { TasksPastDueList } from '../TasksPastDueList/TasksPastDueList';
 import { useEffect } from 'react';
 import {
   closeSortedPastDueModal,
-  updateSortedPastDueContactAvatar,
-  updateSortedPastDueContactName,
   closePastDueMobileAndTabModal,
-  getSavedPlaces,
+  fetchSavedPlaces,
+  updatePlaceDetails,
+  fetchSavedCatPics,
+  fetchSavedDogPics
 } from '../../redux/AppRedux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import ReactJson from '@microlink/react-json-view';
 import {
+  selectKey,
   selectError,
   selectIsLoading,
   selectOpenSortedPastDueModal,
   selectedSelectedEndpoint,
   selectOpenPastDueMobileAndTabModal,
   selectIsSelectedSavedPlaceLoading,
+  selectEndpointOne,
+  selectEndpointTwo,
+  selectEndpointFour,
+  selectEndpointFive
 } from '../../redux/AppRedux/selectors';
 import css from './SortedPastDueTasks.module.css';
 import svg from './icons.svg';
@@ -28,8 +37,8 @@ import { useRef } from 'react';
 
 export const Contacts = () => {
   const sectionRef = useRef(null);
-  const [isNameEditing, setNameEdit] = useState(false);
-  const [nameValue, setNameValue] = useState("");
+  const [placeId, setPlaceId] = useState('%20');
+  const [description, setDescription] = useState('%20');
    const myEndpoint = useSelector(selectedSelectedEndpoint);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
@@ -39,37 +48,62 @@ export const Contacts = () => {
   const isSelectedSavedPlaceLoading = useSelector(selectIsSelectedSavedPlaceLoading);
  
   const error = useSelector(selectError);
+  const endPointOne = useSelector(selectEndpointOne);
+  const endPointTwo = useSelector(selectEndpointTwo);
+  const endPointFour = useSelector(selectEndpointFour);
+  const endPointFive = useSelector(selectEndpointFive);
+
+  
+  
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
   const isMobileOrTab = useMediaQuery({ query: '(max-width: 1279px)' });
   const isOpenModal = useSelector(selectOpenSortedPastDueModal);
+  const apiKey =  useSelector(selectKey);
   
+  const jsonData = JSON.stringify(endPointOne, null, 2);
+
+  const jsonDataTwo = JSON.stringify(endPointTwo, null, 2);
+
+  const jsonDataFour = JSON.stringify(endPointFour, null, 2);
+
+  const jsonDataFive = JSON.stringify(endPointFive, null, 2);
+
 
  const handleModalClose = () => {
    dispatch(closeSortedPastDueModal());
    dispatch(closePastDueMobileAndTabModal());
   };
 
+  const handleIdInput = (evt) => {
+    setPlaceId(evt.target.value);
+  }
+
+  const handleDescriptionInput = (evt) => {
+    setDescription(evt.target.value);
+  };
   
 
-  const handleNameSave = evt => {
-    
-     if (nameValue.trim() !== '') {
-       const idValue = evt.target.name;
-       dispatch(
-         updateSortedPastDueContactName({
-           description: nameValue,
-           myUpdateId: idValue,
-         })
-       );
-       setNameEdit(false);
-     } else if (nameValue.trim() === '') {
-       Notiflix.Notify.warning('Input is required');
-     }
-     evt.target.style.boxShadow = 'inset 0 0 10px 5px rgba(0, 0, 0, 0.3)';
-     setTimeout(() => {
-       evt.target.style.boxShadow = 'none';
-     }, 500);
+  const handleFirstPoint = () => {
+    dispatch(fetchSavedPlaces(apiKey));
+  }
+
+  const handleSecondPoint = () => {
+    if (placeId.trim() === '%20' || description.trim() === '%20') {
+      Notiflix.Notify.warning('Missing Place ID or Description');
+    }
+    else {
+      dispatch(updatePlaceDetails({ id: placeId, description: description, apiKey: apiKey }));
+    }
+  }
+
+  const handleFourthPoint = () => {
+    dispatch(fetchSavedCatPics(apiKey));
+  }
+
+  const handleFifthPoint = () => {
+    dispatch(fetchSavedDogPics(apiKey));
   };
+
   
   
    useEffect(() => {
@@ -164,31 +198,304 @@ export const Contacts = () => {
 
         {myEndpoint.id === '1' && (
           <ul className={css.detailsWrapper}>
-            <li className={css.detailsItem}>First</li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="javascript"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '180px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {`fetch('https://pawpoint-backend.onrender.com/api/places/savedPlaces', {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+      },
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+              </SyntaxHighlighter>
+            </li>
+            <li>
+              <button
+                className={css.detailsItemButton}
+                onClick={handleFirstPoint}
+              >
+                Send
+              </button>
+            </li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="json"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '100px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {jsonData}
+              </SyntaxHighlighter>
+            </li>
           </ul>
         )}
 
         {myEndpoint.id === '2' && (
           <ul className={css.detailsWrapper}>
-            <li className={css.detailsItem}>Second</li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="javascript"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '140px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {`fetch('https://pawpoint-backend.onrender.com/api/places/savedPlacesApi/${placeId}', {
+      method: "PATCH",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({ description: ${description} })
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+              </SyntaxHighlighter>
+            </li>
+            <li className={css.formItem}>
+              <input
+                type="text"
+                className={css.detailsValInput}
+                required
+                onChange={handleIdInput}
+                name="Place ID"
+                placeholder="Place ID"
+              />
+              <button
+                className={css.detailsItemButton}
+                onClick={handleSecondPoint}
+              >
+                Send
+              </button>
+              <input
+                type="text"
+                className={css.detailsValInput}
+                required
+                onChange={handleDescriptionInput}
+                name="Place Description"
+                placeholder="Place Description"
+              />
+            </li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="json"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '140px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {jsonDataTwo}
+              </SyntaxHighlighter>
+            </li>
           </ul>
         )}
 
         {myEndpoint.id === '3' && (
           <ul className={css.detailsWrapper}>
-            <li className={css.detailsItem}>Third</li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="javascript"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '180px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {`fetch('https://pawpoint-backend.onrender.com/api/places/savedPlaces', {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+      },
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+              </SyntaxHighlighter>
+            </li>
+            <li>
+              <button
+                className={css.detailsItemButton}
+                onClick={handleFirstPoint}
+              >
+                Send
+              </button>
+            </li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="json"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '100px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {jsonData}
+              </SyntaxHighlighter>
+            </li>
           </ul>
         )}
 
         {myEndpoint.id === '4' && (
           <ul className={css.detailsWrapper}>
-            <li className={css.detailsItem}>Fourth</li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="javascript"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '180px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {`fetch('https://pawpoint-backend.onrender.com/api/places/catpicsApi', {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+      },
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+              </SyntaxHighlighter>
+            </li>
+            <li>
+              <button
+                className={css.detailsItemButton}
+                onClick={handleFourthPoint}
+              >
+                Send
+              </button>
+            </li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="json"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '100px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {jsonDataFour}
+              </SyntaxHighlighter>
+            </li>
           </ul>
         )}
 
         {myEndpoint.id === '5' && (
           <ul className={css.detailsWrapper}>
-            <li className={css.detailsItem}>Fifth</li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="javascript"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '180px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {`fetch('https://pawpoint-backend.onrender.com/api/places/dogpicsApi', {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+      },
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+              </SyntaxHighlighter>
+            </li>
+            <li>
+              <button
+                className={css.detailsItemButton}
+                onClick={handleFifthPoint}
+              >
+                Send
+              </button>
+            </li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="json"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '100px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                }}
+              >
+                {jsonDataFive}
+              </SyntaxHighlighter>
+            </li>
           </ul>
         )}
 

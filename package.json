@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://Oseyijotham.github.io/pawpoint",
   "dependencies": {
+    "@microlink/react-json-view": "^1.31.20",
     "@reduxjs/toolkit": "^2.2.4",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",

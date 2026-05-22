@@ -67,6 +67,10 @@ import {
   fetchSavedPlaceById,
   fetchWeatherKey,
   fetchEndpointById,
+  fetchSavedPlaces,
+  updatePlaceDetails,
+  fetchSavedCatPics,
+  fetchSavedDogPics
 } from './operations';
 
 import { clearData } from '../AuthRedux/operations';
@@ -116,9 +120,9 @@ const contactsSlice = createSlice({
       openMyPendingModal: false,
       openMyCompletedModal: false,
       openMyPastDueModal: false,
-      weatherConditions:[],
+      weatherConditions: [],
       selectedContact: {
-        geometry: { coordinates:[0,1] },
+        geometry: { coordinates: [0, 1] },
         properties: {
           names: { primary: null },
           addresses: [{}],
@@ -134,10 +138,15 @@ const contactsSlice = createSlice({
           },
         },
       },
-       selectedEndpoint: {
-        id:null,
+      selectedEndpoint: {
+        id: null,
         name: null,
       },
+      endpointOne: [],
+      endpointTwo: {},
+      endpointThree: {},
+      endpointFour: [],
+      endpointFive: [],
       selectedSortedAllContact: {
         name: null,
         email: null,
@@ -219,6 +228,58 @@ const contactsSlice = createSlice({
       })
       .addCase(fetchCatPics.rejected, state => {
         state.contacts.isCatPicsLoading = false;
+        state.contacts.error = true;
+      })
+
+      .addCase(fetchSavedPlaces.pending, state => {
+        state.contacts.isLoading = true;
+      })
+      .addCase(fetchSavedPlaces.fulfilled, (state, action) => {
+        state.contacts.isLoading = false;
+        state.contacts.error = null;
+        state.contacts.endpointOne = action.payload;
+      })
+      .addCase(fetchSavedPlaces.rejected, state => {
+        state.contacts.isLoading = false;
+        state.contacts.error = true;
+      })
+
+      .addCase(updatePlaceDetails.pending, state => {
+        state.contacts.isLoading = true;
+      })
+      .addCase(updatePlaceDetails.fulfilled, (state, action) => {
+        state.contacts.isLoading = false;
+        state.contacts.error = null;
+        state.contacts.endpointTwo = action.payload;
+      })
+      .addCase(updatePlaceDetails.rejected, state => {
+        state.contacts.isLoading = false;
+        state.contacts.error = true;
+      })
+
+      .addCase(fetchSavedCatPics.pending, state => {
+        state.contacts.isLoading = true;
+      })
+      .addCase(fetchSavedCatPics.fulfilled, (state, action) => {
+        state.contacts.isLoading = false;
+        state.contacts.error = null;
+        state.contacts.endpointFour = action.payload;
+      })
+      .addCase(fetchSavedCatPics.rejected, state => {
+        state.contacts.isLoading = false;
+        state.contacts.error = true;
+      })
+
+      .addCase(fetchSavedDogPics.pending, state => {
+        state.contacts.isLoading = true;
+      })
+      .addCase(fetchSavedDogPics.fulfilled, (state, action) => {
+        state.contacts.isLoading = false;
+        state.contacts.error = null;
+        state.contacts.endpointFive = action.payload;
+      })
+      .addCase(fetchSavedDogPics.rejected, state => {
+        state.contacts.isLoading = false;
         state.contacts.error = true;
       })
 

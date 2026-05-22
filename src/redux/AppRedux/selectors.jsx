@@ -92,4 +92,14 @@ export const selectKeyName = state => state.contacts.contacts.keyName;
 
 export const selectKeyId = state => state.contacts.contacts.keyId;
 
+export const selectEndpointOne = state => state.contacts.contacts.endpointOne;
+
+export const selectEndpointTwo = state => state.contacts.contacts.endpointTwo;
+
+export const selectEndpointThree = state => state.contacts.contacts.endpointThree;
+
+export const selectEndpointFour = state => state.contacts.contacts.endpointFour;
+
+export const selectEndpointFive = state => state.contacts.contacts.endpointFive;
+
 export const selectKeyDate = state => state.contacts.contacts.keyDate;

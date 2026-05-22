@@ -34,9 +34,9 @@ export const fetchContacts = createAsyncThunk(
     } catch (error) {
       Notiflix.Loading.remove();
       if (error.response.status === 401) {
-                  thunkAPI.dispatch(logOut());
-                  Notiflix.Notify.failure('Invalid Session, login again');
-                } 
+        thunkAPI.dispatch(logOut());
+        Notiflix.Notify.failure('Invalid Session, login again');
+      }
       return thunkAPI.rejectWithValue(null);
     }
   }
@@ -64,7 +64,6 @@ export const searchPlaces = createAsyncThunk(
   }
 );
 
-
 export const openPastDueMobileAndTabModal = createAsyncThunk(
   'pastDueMobileAndTabModal/open',
   async () => {
@@ -78,7 +77,6 @@ export const closePastDueMobileAndTabModal = createAsyncThunk(
     return true;
   }
 );
-
 
 export const openCompletedMobileAndTabModal = createAsyncThunk(
   'completedMobileAndTabModal/open',
@@ -140,12 +138,9 @@ export const openModal = createAsyncThunk('modalAndTabModal/open', async () => {
   return true;
 });
 
-export const closeModal = createAsyncThunk(
-  'modal/close',
-  async () => {
-    return false;
-  }
-);
+export const closeModal = createAsyncThunk('modal/close', async () => {
+  return false;
+});
 
 export const openSortedAllModal = createAsyncThunk(
   'modal/openAll',
@@ -205,42 +200,45 @@ export const closeSortedPastDueModal = createAsyncThunk(
 
 export const handleFilterFowardUp = createAsyncThunk(
   'filter/fowardUp',
-  async (val) => {
+  async val => {
     return val + 4;
   }
 );
 
 export const handleFilterFowardDown = createAsyncThunk(
   'filter/fowardDown',
-  async (val) => {
+  async val => {
     return val + 4;
   }
 );
 
-
 export const handleFilterBackwardUp = createAsyncThunk(
   'filter/backwardUp',
-  async (val) => {
+  async val => {
     return val - 4;
   }
 );
 
 export const handleFilterBackwardDown = createAsyncThunk(
   'filter/backwardDown',
-  async (val) => {
+  async val => {
     return val - 4;
   }
 );
 
 export const updateContactAvatar = createAsyncThunk(
   'contacts/updateContactAvatar',
-  async ({myFile, myId}, thunkAPI) => {
+  async ({ myFile, myId }, thunkAPI) => {
     Notiflix.Loading.pulse('Updating Client Avatar...', {
       svgColor: '#9225ff',
       fontFamily: 'DM Sans',
     });
     try {
-      const res = await axios.patch(`/contacts/avatars/${myId}`, { avatar: myFile }, {headers: { 'Content-Type': 'multipart/form-data' }});
+      const res = await axios.patch(
+        `/contacts/avatars/${myId}`,
+        { avatar: myFile },
+        { headers: { 'Content-Type': 'multipart/form-data' } }
+      );
 
       Notiflix.Loading.remove();
       Notiflix.Notify.success('Avatar Updated, reflecting now...');
@@ -250,9 +248,9 @@ export const updateContactAvatar = createAsyncThunk(
       if (error.response.status === 401) {
         thunkAPI.dispatch(logOut());
         Notiflix.Notify.failure('Invalid Session, login again');
-      } 
-      Notiflix.Notify.failure(error.response.data.error.message); 
-    
+      }
+      Notiflix.Notify.failure(error.response.data.error.message);
+
       return thunkAPI.rejectWithValue(null);
     }
   }
@@ -281,8 +279,8 @@ export const updateSortedAllContactAvatar = createAsyncThunk(
         thunkAPI.dispatch(logOut());
         Notiflix.Notify.failure('Invalid Session, login again');
       }
-     Notiflix.Notify.failure(error.response.data.error.message);
-      
+      Notiflix.Notify.failure(error.response.data.error.message);
+
       return thunkAPI.rejectWithValue(null);
     }
   }
@@ -380,24 +378,23 @@ export const updateSortedPastDueContactAvatar = createAsyncThunk(
 
 export const updateContactName = createAsyncThunk(
   'contacts/updateContactName',
-  async ({ name, myUpdateId}, thunkAPI) => {
+  async ({ name, myUpdateId }, thunkAPI) => {
     Notiflix.Loading.pulse('Updating Client Name...', {
       svgColor: '#9225ff',
       fontFamily: 'DM Sans',
     });
     try {
       const res = await axios.patch(`/contacts/nameupdate/${myUpdateId}`, {
-        name
+        name,
       });
 
       const response = await axios.get('/contacts');
-
 
       Notiflix.Loading.remove();
       //return res.data;
       return {
         newObj: res.data,
-        newRay: response.data
+        newRay: response.data,
       };
     } catch (error) {
       Notiflix.Notify.failure(error.response.data.error.message);
@@ -405,7 +402,7 @@ export const updateContactName = createAsyncThunk(
       if (error.response.status === 401) {
         thunkAPI.dispatch(logOut());
         Notiflix.Notify.failure('Invalid Session, login again');
-      } 
+      }
       return thunkAPI.rejectWithValue(null);
     }
   }
@@ -437,7 +434,7 @@ export const updateSortedAllContactName = createAsyncThunk(
       if (error.response.status === 401) {
         thunkAPI.dispatch(logOut());
         Notiflix.Notify.failure('Invalid Session, login again');
-      } 
+      }
       return thunkAPI.rejectWithValue(null);
     }
   }
@@ -469,7 +466,7 @@ export const updateSortedPendingContactName = createAsyncThunk(
       if (error.response.status === 401) {
         thunkAPI.dispatch(logOut());
         Notiflix.Notify.failure('Invalid Session, login again');
-      } 
+      }
       return thunkAPI.rejectWithValue(null);
     }
   }
@@ -501,7 +498,7 @@ export const updateSortedCompletedContactName = createAsyncThunk(
       if (error.response.status === 401) {
         thunkAPI.dispatch(logOut());
         Notiflix.Notify.failure('Invalid Session, login again');
-      } 
+      }
       return thunkAPI.rejectWithValue(null);
     }
   }
@@ -533,12 +530,11 @@ export const updateSortedPastDueContactName = createAsyncThunk(
       if (error.response.status === 401) {
         thunkAPI.dispatch(logOut());
         Notiflix.Notify.failure('Invalid Session, login again');
-      } 
+      }
       return thunkAPI.rejectWithValue(null);
     }
   }
 );
-
 
 export const updateContactEmail = createAsyncThunk(
   'contacts/updateContactEmail',
@@ -566,7 +562,7 @@ export const updateContactEmail = createAsyncThunk(
       if (error.response.status === 401) {
         thunkAPI.dispatch(logOut());
         Notiflix.Notify.failure('Invalid Session, login again');
-      } 
+      }
       return thunkAPI.rejectWithValue(null);
     }
   }
@@ -721,13 +717,13 @@ export const updateContactPhone = createAsyncThunk(
         newRay: response.data,
       };
     } catch (error) {
-    Notiflix.Notify.failure(error.response.data.error.message);
-    Notiflix.Loading.remove();
-    if (error.response.status === 401) {
-      thunkAPI.dispatch(logOut());
-      Notiflix.Notify.failure('Invalid Session, login again');
-    }
-    return thunkAPI.rejectWithValue(null);
+      Notiflix.Notify.failure(error.response.data.error.message);
+      Notiflix.Loading.remove();
+      if (error.response.status === 401) {
+        thunkAPI.dispatch(logOut());
+        Notiflix.Notify.failure('Invalid Session, login again');
+      }
+      return thunkAPI.rejectWithValue(null);
     }
   }
 );
@@ -766,7 +762,7 @@ export const updateSortedAllContactPhone = createAsyncThunk(
 
 export const updateSortedPendingContactPhone = createAsyncThunk(
   'contacts/updateSortedPendingContactPhone',
-  async ({dueDate, myUpdateId }, thunkAPI) => {
+  async ({ dueDate, myUpdateId }, thunkAPI) => {
     Notiflix.Loading.pulse('Updating Due Date...', {
       svgColor: '#9225ff',
       fontFamily: 'DM Sans',
@@ -839,12 +835,14 @@ export const updateSortedPastDueContactPhone = createAsyncThunk(
       const res = await axios.patch(`/contacts/phoneupdate/${myUpdateId}`, {
         dueDate,
       });
-    
+
       const nowInstDate = new Date();
       const myDate = new Date(dueDate);
       if (myDate > nowInstDate) {
         thunkAPI.dispatch(closeSortedPastDueModal());
-        Notiflix.Notify.success('Due Date moved foward, appointment status is now PENDING')
+        Notiflix.Notify.success(
+          'Due Date moved foward, appointment status is now PENDING'
+        );
       }
 
       const response = await axios.get('/contacts');
@@ -866,8 +864,6 @@ export const updateSortedPastDueContactPhone = createAsyncThunk(
     }
   }
 );
-
-
 
 export const fetchContactById = createAsyncThunk(
   'places/onePlace',
@@ -892,7 +888,7 @@ export const fetchSavedPlaceById = createAsyncThunk(
   'places/oneSavedPlace',
   async (id, thunkAPI) => {
     try {
-     /* const state = thunkAPI.getState();
+      /* const state = thunkAPI.getState();
       const foundPlaces = state.contacts.contacts.savedPlaces;
       const myObj = foundPlaces.find(place => place._id === id);
       return myObj;*/
@@ -914,7 +910,7 @@ export const fetchSortedAllContactById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.get(`/contacts/${id}`);
-      console.log (response.data);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       if (error.response.status === 401) {
@@ -981,40 +977,34 @@ export const fetchSortedPastDueContactById = createAsyncThunk(
   }
 );
 
-
-
-
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (taskId, thunkAPI) => {
     try {
-     const res = await axios.delete(`/contacts/${taskId}`);
-     
-      
+      const res = await axios.delete(`/contacts/${taskId}`);
       return res.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(null);
     }
   }
-);          
+);
 
- export const updateStatus = createAsyncThunk(
-   'tasks/updateStatus',
-   async ({ data }, thunkAPI) => {
-     try {
-       const res =  await axios.post(`/places/saveplace`, {
-         
-         data
-       });
-       console.log(res.data);
-       
-       return res.data;
-     } catch (e) {
-       return thunkAPI.rejectWithValue(null);
-     }
-   }
-);    
- 
+export const updateStatus = createAsyncThunk(
+  'tasks/updateStatus',
+  async ({ data }, thunkAPI) => {
+    try {
+      const res = await axios.post(`/places/saveplace`, {
+        data,
+      });
+      console.log(res.data);
+
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
 export const saveCategoryName = createAsyncThunk(
   'category/save',
   async name => {
@@ -1022,12 +1012,9 @@ export const saveCategoryName = createAsyncThunk(
   }
 );
 
-export const saveCountryName = createAsyncThunk(
-  'country/save',
-  async name => {
-    return name;
-  }
-);
+export const saveCountryName = createAsyncThunk('country/save', async name => {
+  return name;
+});
 
 export const createApiKey = createAsyncThunk(
   'api/createApiKey',
@@ -1051,7 +1038,7 @@ export const retrieveApiKey = createAsyncThunk(
   'api/retrieveKey',
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get('/users/retrieve', { cache: "store" });
+      const res = await axios.get('/users/retrieve', { cache: 'store' });
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -1087,7 +1074,7 @@ export const fetchMoreCatPics = createAsyncThunk(
   'api/moreCatPics',
   async ({ pageNum }, thunkAPI) => {
     try {
-      const res = await axios.post('/places/morecatpics', { pageNum } );
+      const res = await axios.post('/places/morecatpics', { pageNum });
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -1124,6 +1111,11 @@ export const deletePlaces = createAsyncThunk(
   async (placeId, thunkAPI) => {
     try {
       const res = await axios.delete(`/places/deletePlaces/${placeId}`);
+      const state = thunkAPI.getState();
+      const selectedSavedPlace = state.contacts.contacts.selectedSavedPlace;
+      if (selectedSavedPlace._id === placeId) {
+        thunkAPI.dispatch(closeSortedCompletedModal());
+      }
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -1131,14 +1123,11 @@ export const deletePlaces = createAsyncThunk(
   }
 );
 
-
 export const fetchWeatherKey = createAsyncThunk(
   'places/fetchWeatherConditions',
-  async ({lat, long}, thunkAPI) => {
+  async ({ lat, long }, thunkAPI) => {
     try {
-      const res = await axios.get(
-        `/places/getWeather?lat=${lat}&long=${long}`
-      );
+      const res = await axios.get(`/places/getWeather?lat=${lat}&long=${long}`);
       console.log(res.data);
       return res.data;
     } catch (error) {
@@ -1225,20 +1214,155 @@ export const fetchEndpointById = createAsyncThunk(
   }
 );
 
-/*
- export const updateStatus = createAsyncThunk(
-   'tasks/updateStatus',
-   async ({ data }, thunkAPI) => {
-     try {
-       const res =  await axios.post(`/places/saveplace`, {
-         
-         data
-       });
-       console.log(res.data);
-       
-       return res.data;
-     } catch (e) {
-       return thunkAPI.rejectWithValue(null);
-     }
-   }
-);     */
+export const fetchSavedPlaces = createAsyncThunk(
+  'api/fetchSavedPlaces',
+  async (apiKey, thunkAPI) => {
+    try {
+      Notiflix.Loading.pulse('Fetching Saved Places...', {
+        svgColor: '#00bfff',
+        fontFamily: 'DM Sans',
+      });
+      const response = await fetch(
+        'http://localhost:8001/api/places/savedPlacesApi',
+        {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            'x-api-key': apiKey,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      Notiflix.Loading.remove();
+      return data;
+    } catch (error) {
+      Notiflix.Loading.remove();
+      Notiflix.Notify.failure(error.response.data.error.message);
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
+export const updatePlaceDetails = createAsyncThunk(
+  'place/updatePlaceDetails',
+  async ({ id, description, apiKey }, thunkAPI) => {
+    try {
+      Notiflix.Loading.pulse('Updating Place Description...', {
+        svgColor: '#00bfff',
+        fontFamily: 'DM Sans',
+      });
+      const response = await fetch(
+        `http://localhost:8001/api/places/detailsUpdateApi/${id}`,
+        {
+          method: 'PATCH',
+          headers: {
+            accept: 'application/json',
+            'x-api-key': apiKey,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ description }),
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      Notiflix.Loading.remove();
+      return data;
+    } catch (error) {
+      Notiflix.Notify.failure(error.response.data.error.message);
+      Notiflix.Loading.remove();
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
+export const fetchSavedCatPics = createAsyncThunk(
+  'api/savedCatPics',
+  async (apiKey, thunkAPI) => {
+    try {
+      Notiflix.Loading.pulse('Fetching Saved Cat Images...', {
+        svgColor: '#00bfff',
+        fontFamily: 'DM Sans',
+      });
+      const response = await fetch(
+        `http://localhost:8001/api/places/catpicsApi`,
+        {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            'x-api-key': apiKey
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      Notiflix.Loading.remove();
+      return data;
+    } catch (error) {
+      Notiflix.Notify.failure(error.response.data.error.message);
+      Notiflix.Loading.remove();
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
+export const fetchSavedDogPics = createAsyncThunk(
+  'api/savedDogPics',
+  async (apiKey, thunkAPI) => {
+    try {
+      Notiflix.Loading.pulse('Fetching Saved Dog Images...', {
+        svgColor: '#00bfff',
+        fontFamily: 'DM Sans',
+      });
+      const response = await fetch(
+        `http://localhost:8001/api/places/dogpicsApi`,
+        {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            'x-api-key': apiKey
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      Notiflix.Loading.remove();
+      return data;
+    } catch (error) {
+      Notiflix.Notify.failure(error.response.data.error.message);
+      Notiflix.Loading.remove();
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
+export const deleteCatImage = createAsyncThunk(
+  'images/deleteCatImage', 
+  async ({id, apiKey}, thunkAPI) => {
+    
+    try {
+      Notiflix.Loading.pulse('Deleting Cat Image...', {
+        svgColor: '#00bfff',
+        fontFamily: 'DM Sans',
+      });
+      const response = await fetch(
+        `http://localhost:8001/api/places/dogpicsApi/${id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            accept: 'application/json',
+            'x-api-key': apiKey,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      Notiflix.Loading.remove();
+      return data;
+    } catch (error) {
+      Notiflix.Notify.failure(error.response.data.error.message);
+      Notiflix.Loading.remove();
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
