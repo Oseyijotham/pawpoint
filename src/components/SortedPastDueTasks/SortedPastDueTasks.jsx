@@ -8,6 +8,7 @@ import {
   fetchSavedCatPics,
   fetchSavedDogPics,
   deleteCatImage,
+  deleteDogImage,
 } from '../../redux/AppRedux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
@@ -27,6 +28,7 @@ import {
   selectEndpointFour,
   selectEndpointFive,
   selectEndpointSix,
+  selectEndpointSeven,
 } from '../../redux/AppRedux/selectors';
 import css from './SortedPastDueTasks.module.css';
 import svg from './icons.svg';
@@ -42,6 +44,7 @@ export const Contacts = () => {
   const [placeId, setPlaceId] = useState('%20');
   const [description, setDescription] = useState('%20');
   const [catImageId, setCatImageId] = useState('%20');
+  const [dogImageId, setDogImageId] = useState('%20');
    const myEndpoint = useSelector(selectedSelectedEndpoint);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
@@ -56,6 +59,7 @@ export const Contacts = () => {
   const endPointFour = useSelector(selectEndpointFour);
   const endPointFive = useSelector(selectEndpointFive);
   const endPointSix = useSelector(selectEndpointSix);
+  const endPointSeventh = useSelector(selectEndpointSeven);
 
   
   
@@ -74,6 +78,8 @@ export const Contacts = () => {
 
   const jsonDataSix = JSON.stringify(endPointSix, null, 2);
 
+  const jsonDataSeventh = JSON.stringify(endPointSeventh, null, 2);
+
 
 
  const handleModalClose = () => {
@@ -83,10 +89,16 @@ export const Contacts = () => {
 
   const handleIdInput = (evt) => {
     setPlaceId(evt.target.value);
+    if (evt.target.value === '') {
+      setPlaceId('%20');
+    }
   }
 
   const handleDescriptionInput = (evt) => {
     setDescription(evt.target.value);
+    if (evt.target.value === '') {
+      setDescription('%20');
+    }
   };
   
 
@@ -113,14 +125,32 @@ export const Contacts = () => {
 
    const handleCatImageIdInput = evt => {
      setCatImageId(evt.target.value);
-   };
+     if (evt.target.value === '') {
+       setCatImageId('%20');
+     }
+  };
+  
+  const handleDogImageIdInput = evt => {
+    setDogImageId(evt.target.value);
+    if (evt.target.value === '') {
+      setDogImageId('%20');
+    }
+  };
 
   const handleSixthPoint = () => {
     if (catImageId.trim() === '%20') {
-      Notiflix.Notify.warning("Enter the Image ID");
-    }
-    else{
+      Notiflix.Notify.warning('Enter the Image ID');
+    } else {
       dispatch(deleteCatImage({ id: catImageId, apiKey: apiKey }));
+    }
+  };
+
+  
+  const handleSeventhPoint = () => {
+    if (dogImageId.trim() === '%20') {
+      Notiflix.Notify.warning('Enter the Image ID');
+    } else {
+      dispatch(deleteDogImage({ id: dogImageId, apiKey: apiKey }));
     }
   };
 
@@ -233,6 +263,7 @@ export const Contacts = () => {
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
                 {`fetch('https://pawpoint-backend.onrender.com/api/places/savedPlaces', {
@@ -267,6 +298,7 @@ export const Contacts = () => {
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
                 {jsonData}
@@ -290,6 +322,7 @@ export const Contacts = () => {
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
                 {`fetch('https://pawpoint-backend.onrender.com/api/places/savedPlacesApi/${placeId}', {
@@ -342,6 +375,7 @@ export const Contacts = () => {
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
                 {jsonDataTwo}
@@ -422,6 +456,7 @@ export const Contacts = () => {
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
                 {`fetch('https://pawpoint-backend.onrender.com/api/cats/catpicsApi', {
@@ -456,6 +491,7 @@ export const Contacts = () => {
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
                 {jsonDataFour}
@@ -479,6 +515,7 @@ export const Contacts = () => {
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
                 {`fetch('https://pawpoint-backend.onrender.com/api/dogs/dogpicsApi', {
@@ -513,6 +550,7 @@ export const Contacts = () => {
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
                 {jsonDataFive}
@@ -536,9 +574,10 @@ export const Contacts = () => {
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/cats/removeCatimageApi/${placeId}', {
+                {`fetch('https://pawpoint-backend.onrender.com/api/cats/removeCatimageApi/${catImageId}', {
       method: "DELETE",
       headers: {
         "accept": "application/json",
@@ -579,6 +618,7 @@ export const Contacts = () => {
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
                 {jsonDataSix}
@@ -589,7 +629,69 @@ export const Contacts = () => {
 
         {myEndpoint.id === '7' && (
           <ul className={css.detailsWrapper}>
-            <li className={css.detailsItem}>Seventh</li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="javascript"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '140px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                  fontSize: '13px',
+                }}
+              >
+                {`fetch('https://pawpoint-backend.onrender.com/api/cats/removeDogimageApi/${dogImageId}', {
+      method: "DELETE",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey}
+      }
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+              </SyntaxHighlighter>
+            </li>
+            <li className={css.formItem}>
+              <input
+                type="text"
+                className={css.detailsValInput}
+                required
+                onChange={handleDogImageIdInput}
+                name="Dog Image ID"
+                placeholder="Dog Image ID"
+              />
+              <button
+                style={{ width: '205px', borderRadius: '10px' }}
+                className={css.detailsItemButton}
+                onClick={handleSeventhPoint}
+              >
+                Send
+              </button>
+            </li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="json"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '140px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                  fontSize: '13px',
+                }}
+              >
+                {jsonDataSeventh}
+              </SyntaxHighlighter>
+            </li>
           </ul>
         )}
       </div>

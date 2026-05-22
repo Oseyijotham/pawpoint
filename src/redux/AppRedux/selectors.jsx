@@ -104,4 +104,6 @@ export const selectEndpointFive = state => state.contacts.contacts.endpointFive;
 
 export const selectEndpointSix = state => state.contacts.contacts.endpointSix;
 
+export const selectEndpointSeven = state => state.contacts.contacts.endpointSeven;
+
 export const selectKeyDate = state => state.contacts.contacts.keyDate;
