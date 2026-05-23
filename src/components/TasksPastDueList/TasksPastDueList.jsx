@@ -3,10 +3,6 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { selectPlaces } from '../../redux/AppRedux/selectors';
 import {
-  selectFilterDown,
-  selectError,
-  selectIsSavedPlacesLoading,
-  selectIsDeletePlacesLoading,
   selectSavedPlaces,
 } from '../../redux/AppRedux/selectors';
 import {
@@ -16,16 +12,11 @@ import {
   fetchEndpointById,
 } from '../../redux/AppRedux/operations';
 import css from './TasksPastDueList.module.css';
-import { ThreeCircles } from 'react-loader-spinner';
-import icons from './icons.svg';
 import endpointNames from '../Options/endpoints.json';
 
 export const TasksPastDueList = ({ children }) => {
-  const [isTrue, setIfTrue] = useState(true);
+  
   const savedPlaces = useSelector(selectSavedPlaces);
-  const isSavedPlacesLoading = useSelector(selectIsSavedPlacesLoading);
-  const isDeletePlacesLoading = useSelector(selectIsDeletePlacesLoading);
-  const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   const handleDelete = evt => {
