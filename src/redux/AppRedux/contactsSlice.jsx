@@ -73,6 +73,7 @@ import {
   fetchSavedDogPics,
   deleteCatImage,
   deleteDogImage,
+  fetchWeatherData,
 } from './operations';
 
 import { clearData } from '../AuthRedux/operations';
@@ -146,7 +147,7 @@ const contactsSlice = createSlice({
       },
       endpointOne: [],
       endpointTwo: {},
-      endpointThree: {},
+      endpointThree: [],
       endpointFour: [],
       endpointFive: [],
       endpointSix: {},
@@ -309,6 +310,19 @@ const contactsSlice = createSlice({
         state.contacts.endpointSeven = action.payload;
       })
       .addCase(deleteDogImage.rejected, state => {
+        state.contacts.isLoading = false;
+        state.contacts.error = true;
+      })
+
+      .addCase(fetchWeatherData.pending, state => {
+        state.contacts.isLoading = true;
+      })
+      .addCase(fetchWeatherData.fulfilled, (state, action) => {
+        state.contacts.isLoading = false;
+        state.contacts.error = null;
+        state.contacts.endpointThree = action.payload;
+      })
+      .addCase(fetchWeatherData.rejected, state => {
         state.contacts.isLoading = false;
         state.contacts.error = true;
       })

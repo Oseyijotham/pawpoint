@@ -9,6 +9,7 @@ import {
   fetchSavedDogPics,
   deleteCatImage,
   deleteDogImage,
+  fetchWeatherData,
 } from '../../redux/AppRedux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
@@ -25,6 +26,7 @@ import {
   selectIsSelectedSavedPlaceLoading,
   selectEndpointOne,
   selectEndpointTwo,
+  selectEndpointThree,
   selectEndpointFour,
   selectEndpointFive,
   selectEndpointSix,
@@ -45,6 +47,7 @@ export const Contacts = () => {
   const [description, setDescription] = useState('%20');
   const [catImageId, setCatImageId] = useState('%20');
   const [dogImageId, setDogImageId] = useState('%20');
+  const [placeWeatherId, setPlaceWeatherId] = useState('%20');
    const myEndpoint = useSelector(selectedSelectedEndpoint);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
@@ -56,6 +59,7 @@ export const Contacts = () => {
   const error = useSelector(selectError);
   const endPointOne = useSelector(selectEndpointOne);
   const endPointTwo = useSelector(selectEndpointTwo);
+  const endPointThree = useSelector(selectEndpointThree);
   const endPointFour = useSelector(selectEndpointFour);
   const endPointFive = useSelector(selectEndpointFive);
   const endPointSix = useSelector(selectEndpointSix);
@@ -71,6 +75,8 @@ export const Contacts = () => {
   const jsonData = JSON.stringify(endPointOne, null, 2);
 
   const jsonDataTwo = JSON.stringify(endPointTwo, null, 2);
+
+  const jsonDataThree = JSON.stringify(endPointThree, null, 2);
 
   const jsonDataFour = JSON.stringify(endPointFour, null, 2);
 
@@ -115,6 +121,14 @@ export const Contacts = () => {
     }
   }
 
+   const handleThirdPoint = () => {
+     if (placeWeatherId.trim() === '%20') {
+       Notiflix.Notify.warning('Enter the Place ID');
+     } else {
+       dispatch(fetchWeatherData({ id: placeWeatherId, apiKey: apiKey }));
+     }
+   };
+
   const handleFourthPoint = () => {
     dispatch(fetchSavedCatPics(apiKey));
   }
@@ -134,6 +148,13 @@ export const Contacts = () => {
     setDogImageId(evt.target.value);
     if (evt.target.value === '') {
       setDogImageId('%20');
+    }
+  };
+
+  const handlePlaceIdInput = evt => {
+    setPlaceWeatherId(evt.target.value);
+    if (evt.target.value === '') {
+      setPlaceWeatherId('%20');
     }
   };
 
@@ -394,28 +415,38 @@ export const Contacts = () => {
                 className={css.codeBlock}
                 showLineNumbers
                 customStyle={{
-                  height: '180px',
+                  height: '140px',
                   paddingBottom: '10px',
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/places/savedPlaces', {
+                {`fetch('https://pawpoint-backend.onrender.com/api/places/${placeWeatherId}', {
       method: "GET",
       headers: {
         "accept": "application/json",
-        "x-api-key": ${apiKey},
-      },
+        "x-api-key": ${apiKey}
+      }
     })
   .then(response => response.json())
   .then(data => console.log(data));`}
               </SyntaxHighlighter>
             </li>
-            <li>
+            <li className={css.formItem}>
+              <input
+                type="text"
+                className={css.detailsValInput}
+                required
+                onChange={handlePlaceIdInput}
+                name="Place ID"
+                placeholder="Place ID"
+              />
               <button
+                style={{ width: '205px', borderRadius: '10px' }}
                 className={css.detailsItemButton}
-                onClick={handleFirstPoint}
+                onClick={handleThirdPoint}
               >
                 Send
               </button>
@@ -428,14 +459,15 @@ export const Contacts = () => {
                 className={css.codeBlock}
                 showLineNumbers
                 customStyle={{
-                  height: '100px',
+                  height: '140px',
                   paddingBottom: '10px',
                   borderRadius: '8px',
                   background: '#1f242d',
                   border: '1px solid #ffff',
+                  fontSize: '13px',
                 }}
               >
-                {jsonData}
+                {jsonDataThree}
               </SyntaxHighlighter>
             </li>
           </ul>

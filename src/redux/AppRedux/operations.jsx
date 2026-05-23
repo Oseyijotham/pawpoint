@@ -1395,3 +1395,36 @@ export const deleteDogImage = createAsyncThunk(
     }
   }
 );
+
+export const fetchWeatherData = createAsyncThunk(
+  'places/fetchWeatherConditionsApi',
+  async ({ id, apiKey }, thunkAPI) => {
+    try {
+        Notiflix.Loading.pulse('Getting Weather Info...', {
+          svgColor: '#00bfff',
+          fontFamily: 'DM Sans',
+        });
+        const response = await fetch(
+          `http://localhost:8001/api/places/getWeatherApi/${id}`,
+          {
+            method: 'GET',
+            headers: {
+              accept: 'application/json',
+              'x-api-key': apiKey,
+            },
+          }
+        );
+        const data = await response.json();
+        console.log(data);
+        Notiflix.Loading.remove();
+        return data;
+    } catch (error) {
+      if (error.response.status === 401) {
+        thunkAPI.dispatch(logOut());
+        Notiflix.Notify.failure('Invalid Session, login again');
+      }
+      Notiflix.Notify.failure(error.response.data.error.message);
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
