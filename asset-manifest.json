@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pawpoint/static/css/main.4b3bd636.css",
-    "main.js": "/pawpoint/static/js/main.a017a8c8.js",
+    "main.js": "/pawpoint/static/js/main.6eda160c.js",
     "static/css/306.5bc78eaf.chunk.css": "/pawpoint/static/css/306.5bc78eaf.chunk.css",
     "static/js/306.c1494f54.chunk.js": "/pawpoint/static/js/306.c1494f54.chunk.js",
     "static/css/219.fb877541.chunk.css": "/pawpoint/static/css/219.fb877541.chunk.css",
@@ -18,8 +18,8 @@
     "static/js/607.fbfa737b.chunk.js": "/pawpoint/static/js/607.fbfa737b.chunk.js",
     "static/css/716.864a46fe.chunk.css": "/pawpoint/static/css/716.864a46fe.chunk.css",
     "static/js/716.11376f01.chunk.js": "/pawpoint/static/js/716.11376f01.chunk.js",
-    "static/css/58.804efc61.chunk.css": "/pawpoint/static/css/58.804efc61.chunk.css",
-    "static/js/58.4cc0a2db.chunk.js": "/pawpoint/static/js/58.4cc0a2db.chunk.js",
+    "static/css/58.4a33596e.chunk.css": "/pawpoint/static/css/58.4a33596e.chunk.css",
+    "static/js/58.af7e1178.chunk.js": "/pawpoint/static/js/58.af7e1178.chunk.js",
     "static/css/420.3039562c.chunk.css": "/pawpoint/static/css/420.3039562c.chunk.css",
     "static/js/420.09af1a92.chunk.js": "/pawpoint/static/js/420.09af1a92.chunk.js",
     "static/js/600.5a88396c.chunk.js": "/pawpoint/static/js/600.5a88396c.chunk.js",
@@ -42,7 +42,7 @@
     "static/media/weather.svg": "/pawpoint/static/media/weather.bad5a979209c319cfcee75cd0f9f8dcc.svg",
     "static/media/location.svg": "/pawpoint/static/media/location.e6a3c4864d2d9f51c7384862003ec44a.svg",
     "main.4b3bd636.css.map": "/pawpoint/static/css/main.4b3bd636.css.map",
-    "main.a017a8c8.js.map": "/pawpoint/static/js/main.a017a8c8.js.map",
+    "main.6eda160c.js.map": "/pawpoint/static/js/main.6eda160c.js.map",
     "306.5bc78eaf.chunk.css.map": "/pawpoint/static/css/306.5bc78eaf.chunk.css.map",
     "306.c1494f54.chunk.js.map": "/pawpoint/static/js/306.c1494f54.chunk.js.map",
     "219.fb877541.chunk.css.map": "/pawpoint/static/css/219.fb877541.chunk.css.map",
@@ -59,8 +59,8 @@
     "607.fbfa737b.chunk.js.map": "/pawpoint/static/js/607.fbfa737b.chunk.js.map",
     "716.864a46fe.chunk.css.map": "/pawpoint/static/css/716.864a46fe.chunk.css.map",
     "716.11376f01.chunk.js.map": "/pawpoint/static/js/716.11376f01.chunk.js.map",
-    "58.804efc61.chunk.css.map": "/pawpoint/static/css/58.804efc61.chunk.css.map",
-    "58.4cc0a2db.chunk.js.map": "/pawpoint/static/js/58.4cc0a2db.chunk.js.map",
+    "58.4a33596e.chunk.css.map": "/pawpoint/static/css/58.4a33596e.chunk.css.map",
+    "58.af7e1178.chunk.js.map": "/pawpoint/static/js/58.af7e1178.chunk.js.map",
     "420.3039562c.chunk.css.map": "/pawpoint/static/css/420.3039562c.chunk.css.map",
     "420.09af1a92.chunk.js.map": "/pawpoint/static/js/420.09af1a92.chunk.js.map",
     "600.5a88396c.chunk.js.map": "/pawpoint/static/js/600.5a88396c.chunk.js.map",
@@ -68,6 +68,6 @@
   },
   "entrypoints": [
     "static/css/main.4b3bd636.css",
-    "static/js/main.a017a8c8.js"
+    "static/js/main.6eda160c.js"
   ]
 }
