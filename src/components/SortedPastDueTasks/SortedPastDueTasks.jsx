@@ -216,16 +216,490 @@ export const Contacts = () => {
                 />
               </div>
             )}
-            <button className={css.closeModal} onClick={handleModalClose}>
+            <button className={css.closeModalMobile} onClick={handleModalClose}>
               <svg width="10px" height="10px" className={css.modalIcon}>
                 <use href={`${svg}#icon-cross`}></use>
               </svg>
             </button>
-            <p className={css.detailsTitle}>UPDATE DETAILS</p>
+            <p className={css.detailsTitle}>{myEndpoint.name}</p>
 
-            <ul className={css.detailsWrapper}>
-              <li className={css.detailsItem}></li>
-            </ul>
+            {myEndpoint.id === '1' && (
+              <ul className={css.detailsWrapper}>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '180px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {`fetch('https://pawpoint-backend.onrender.com/api/places/savedPlaces', {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+      },
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+                  </SyntaxHighlighter>
+                </li>
+                <li
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <button
+                    className={css.detailsItemButton}
+                    onClick={handleFirstPoint}
+                  >
+                    Send
+                  </button>
+                </li>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="json"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '100px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {jsonData}
+                  </SyntaxHighlighter>
+                </li>
+              </ul>
+            )}
+
+            {myEndpoint.id === '2' && (
+              <ul className={css.detailsWrapper}>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '140px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {`fetch('https://pawpoint-backend.onrender.com/api/places/savedPlacesApi/${placeId}', {
+      method: "PATCH",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({ description: ${description} })
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+                  </SyntaxHighlighter>
+                </li>
+                <li className={css.formItem}>
+                  <input
+                    type="text"
+                    className={css.detailsValInput}
+                    required
+                    onChange={handleIdInput}
+                    name="Place ID"
+                    placeholder="Place ID"
+                    style={{ width: '100px' }}
+                  />
+                  <button
+                    className={css.detailsItemButton}
+                    onClick={handleSecondPoint}
+                  >
+                    Send
+                  </button>
+                  <input
+                    type="text"
+                    className={css.detailsValInput}
+                    required
+                    onChange={handleDescriptionInput}
+                    name="Place Description"
+                    placeholder="Place Description"
+                    style={{ width: '100px' }}
+                  />
+                </li>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="json"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '140px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {jsonDataTwo}
+                  </SyntaxHighlighter>
+                </li>
+              </ul>
+            )}
+
+            {myEndpoint.id === '3' && (
+              <ul className={css.detailsWrapper}>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '140px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {`fetch('https://pawpoint-backend.onrender.com/api/places/${placeWeatherId}', {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey}
+      }
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+                  </SyntaxHighlighter>
+                </li>
+                <li className={css.formItem}>
+                  <input
+                    type="text"
+                    className={css.detailsValInput}
+                    required
+                    onChange={handlePlaceIdInput}
+                    name="Place ID"
+                    placeholder="Place ID"
+                  />
+                  <button
+                    style={{ width: '205px', borderRadius: '10px' }}
+                    className={css.detailsItemButton}
+                    onClick={handleThirdPoint}
+                  >
+                    Send
+                  </button>
+                </li>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="json"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '140px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {jsonDataThree}
+                  </SyntaxHighlighter>
+                </li>
+              </ul>
+            )}
+
+            {myEndpoint.id === '4' && (
+              <ul className={css.detailsWrapper}>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '180px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {`fetch('https://pawpoint-backend.onrender.com/api/cats/catpicsApi', {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+      },
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+                  </SyntaxHighlighter>
+                </li>
+                <li
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <button
+                    className={css.detailsItemButton}
+                    onClick={handleFourthPoint}
+                  >
+                    Send
+                  </button>
+                </li>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="json"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '100px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {jsonDataFour}
+                  </SyntaxHighlighter>
+                </li>
+              </ul>
+            )}
+
+            {myEndpoint.id === '5' && (
+              <ul className={css.detailsWrapper}>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '180px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {`fetch('https://pawpoint-backend.onrender.com/api/dogs/dogpicsApi', {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+      },
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+                  </SyntaxHighlighter>
+                </li>
+                <li
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <button
+                    className={css.detailsItemButton}
+                    onClick={handleFifthPoint}
+                  >
+                    Send
+                  </button>
+                </li>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="json"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '100px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {jsonDataFive}
+                  </SyntaxHighlighter>
+                </li>
+              </ul>
+            )}
+
+            {myEndpoint.id === '6' && (
+              <ul className={css.detailsWrapper}>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '140px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {`fetch('https://pawpoint-backend.onrender.com/api/cats/removeCatimageApi/${catImageId}', {
+      method: "DELETE",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey}
+      }
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+                  </SyntaxHighlighter>
+                </li>
+                <li className={css.formItem}>
+                  <input
+                    type="text"
+                    className={css.detailsValInput}
+                    required
+                    onChange={handleCatImageIdInput}
+                    name="Cat Image ID"
+                    placeholder="Cat Image ID"
+                  />
+                  <button
+                    style={{ width: '205px', borderRadius: '10px' }}
+                    className={css.detailsItemButton}
+                    onClick={handleSixthPoint}
+                  >
+                    Send
+                  </button>
+                </li>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="json"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '140px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {jsonDataSix}
+                  </SyntaxHighlighter>
+                </li>
+              </ul>
+            )}
+
+            {myEndpoint.id === '7' && (
+              <ul className={css.detailsWrapper}>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '140px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {`fetch('https://pawpoint-backend.onrender.com/api/cats/removeDogimageApi/${dogImageId}', {
+      method: "DELETE",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey}
+      }
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+                  </SyntaxHighlighter>
+                </li>
+                <li className={css.formItem}>
+                  <input
+                    type="text"
+                    className={css.detailsValInput}
+                    required
+                    onChange={handleDogImageIdInput}
+                    name="Dog Image ID"
+                    placeholder="Dog Image ID"
+                  />
+                  <button
+                    style={{ width: '205px', borderRadius: '10px' }}
+                    className={css.detailsItemButton}
+                    onClick={handleSeventhPoint}
+                  >
+                    Send
+                  </button>
+                </li>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="json"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '140px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {jsonDataSeventh}
+                  </SyntaxHighlighter>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       )}
