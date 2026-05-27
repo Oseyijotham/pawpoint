@@ -4,7 +4,7 @@ import Notiflix from 'notiflix';
 
 //axios.defaults.baseURL = 'http://localhost:8001/api';
 
-axios.defaults.baseURL = 'https://pawpoint-backend.onrender.com/api';
+axios.defaults.baseURL = 'https://pawpoint-backend-i96r.onrender.com/api';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
