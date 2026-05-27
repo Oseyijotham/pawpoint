@@ -1223,7 +1223,7 @@ export const fetchSavedPlaces = createAsyncThunk(
         fontFamily: 'DM Sans',
       });
       const response = await fetch(
-        'https://pawpoint-backend.onrender.com/api/places/savedPlacesApi',
+        'https://pawpoint-backend-i96r.onrender.com/api/places/savedPlacesApi',
         {
           method: 'GET',
           headers: {
@@ -1253,7 +1253,7 @@ export const updatePlaceDetails = createAsyncThunk(
         fontFamily: 'DM Sans',
       });
       const response = await fetch(
-        `https://pawpoint-backend.onrender.com/api/places/detailsUpdateApi/${id}`,
+        `https://pawpoint-backend-i96r.onrender.com/api/places/detailsUpdateApi/${id}`,
         {
           method: 'PATCH',
           headers: {
@@ -1285,7 +1285,7 @@ export const fetchSavedCatPics = createAsyncThunk(
         fontFamily: 'DM Sans',
       });
       const response = await fetch(
-        `https://pawpoint-backend.onrender.com/api/cats/catpicsApi`,
+        `https://pawpoint-backend-i96r.onrender.com/api/cats/catpicsApi`,
         {
           method: 'GET',
           headers: {
@@ -1315,7 +1315,7 @@ export const fetchSavedDogPics = createAsyncThunk(
         fontFamily: 'DM Sans',
       });
       const response = await fetch(
-        `https://pawpoint-backend.onrender.com/api/dogs/dogpicsApi`,
+        `https://pawpoint-backend-i96r.onrender.com/api/dogs/dogpicsApi`,
         {
           method: 'GET',
           headers: {
@@ -1345,7 +1345,7 @@ export const deleteCatImage = createAsyncThunk(
         fontFamily: 'DM Sans',
       });
       const response = await fetch(
-        `https://pawpoint-backend.onrender.com/api/cats/removeCatimageApi/${id}`,
+        `https://pawpoint-backend-i96r.onrender.com/api/cats/removeCatimageApi/${id}`,
         {
           method: 'DELETE',
           headers: {
@@ -1375,7 +1375,7 @@ export const deleteDogImage = createAsyncThunk(
         fontFamily: 'DM Sans',
       });
       const response = await fetch(
-        `https://pawpoint-backend.onrender.com/api/dogs/removeDogimageApi/${id}`,
+        `https://pawpoint-backend-i96r.onrender.com/api/dogs/removeDogimageApi/${id}`,
         {
           method: 'DELETE',
           headers: {
@@ -1405,7 +1405,7 @@ export const fetchWeatherData = createAsyncThunk(
           fontFamily: 'DM Sans',
         });
         const response = await fetch(
-          `https://pawpoint-backend.onrender.com/api/places/getWeatherApi/${id}`,
+          `https://pawpoint-backend-i96r.onrender.com/api/places/getWeatherApi/${id}`,
           {
             method: 'GET',
             headers: {

@@ -761,7 +761,7 @@ export const Contacts = () => {
                   fontSize: '13px',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/places/savedPlaces', {
+                {`fetch('https://pawpoint-backend-i96r.onrender.com/api/places/savedPlaces', {
       method: "GET",
       headers: {
         "accept": "application/json",
@@ -820,7 +820,7 @@ export const Contacts = () => {
                   fontSize: '13px',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/places/savedPlacesApi/${placeId}', {
+                {`fetch('https://pawpoint-backend-i96r.onrender.com/api/places/savedPlacesApi/${placeId}', {
       method: "PATCH",
       headers: {
         "accept": "application/json",
@@ -897,7 +897,7 @@ export const Contacts = () => {
                   fontSize: '13px',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/places/${placeWeatherId}', {
+                {`fetch('https://pawpoint-backend-i96r.onrender.com/api/places/${placeWeatherId}', {
       method: "GET",
       headers: {
         "accept": "application/json",
@@ -965,7 +965,7 @@ export const Contacts = () => {
                   fontSize: '13px',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/cats/catpicsApi', {
+                {`fetch('https://pawpoint-backend-i96r.onrender.com/api/cats/catpicsApi', {
       method: "GET",
       headers: {
         "accept": "application/json",
@@ -1024,7 +1024,7 @@ export const Contacts = () => {
                   fontSize: '13px',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/dogs/dogpicsApi', {
+                {`fetch('https://pawpoint-backend-i96r.onrender.com/api/dogs/dogpicsApi', {
       method: "GET",
       headers: {
         "accept": "application/json",
@@ -1083,7 +1083,7 @@ export const Contacts = () => {
                   fontSize: '13px',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/cats/removeCatimageApi/${catImageId}', {
+                {`fetch('https://pawpoint-backend-i96r.onrender.com/api/cats/removeCatimageApi/${catImageId}', {
       method: "DELETE",
       headers: {
         "accept": "application/json",
@@ -1151,7 +1151,7 @@ export const Contacts = () => {
                   fontSize: '13px',
                 }}
               >
-                {`fetch('https://pawpoint-backend.onrender.com/api/cats/removeDogimageApi/${dogImageId}', {
+                {`fetch('https://pawpoint-backend-i96r.onrender.com/api/cats/removeDogimageApi/${dogImageId}', {
       method: "DELETE",
       headers: {
         "accept": "application/json",
