@@ -10,12 +10,16 @@ import {
   deleteCatImage,
   deleteDogImage,
   fetchWeatherData,
+  fetchNewWeatherData,
+  savePlaceId,
+  saveDescription,
+  clearRes,
 } from '../../redux/AppRedux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import ReactJson from '@microlink/react-json-view';
+//import ReactJson from '@microlink/react-json-view';
 import {
   selectKey,
   selectError,
@@ -31,6 +35,9 @@ import {
   selectEndpointFive,
   selectEndpointSix,
   selectEndpointSeven,
+  selectEndpointEight,
+  selectPlaceId,
+  selectDescription,
 } from '../../redux/AppRedux/selectors';
 import css from './SortedPastDueTasks.module.css';
 import svg from './icons.svg';
@@ -48,6 +55,8 @@ export const Contacts = () => {
   const [catImageId, setCatImageId] = useState('%20');
   const [dogImageId, setDogImageId] = useState('%20');
   const [placeWeatherId, setPlaceWeatherId] = useState('%20');
+  const [placeLat, setPlaceLat] = useState('%20');
+  const [placeLong, setPlaceLong] = useState('%20');
    const myEndpoint = useSelector(selectedSelectedEndpoint);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
@@ -64,6 +73,11 @@ export const Contacts = () => {
   const endPointFive = useSelector(selectEndpointFive);
   const endPointSix = useSelector(selectEndpointSix);
   const endPointSeventh = useSelector(selectEndpointSeven);
+  const endPointEight = useSelector(selectEndpointEight);
+
+  const savedPlaceId = useSelector(selectPlaceId);
+  
+  const savedDescription = useSelector(selectDescription);
 
   
   
@@ -86,11 +100,14 @@ export const Contacts = () => {
 
   const jsonDataSeventh = JSON.stringify(endPointSeventh, null, 2);
 
+  const jsonDataEight = JSON.stringify(endPointEight, null, 2);
+
 
 
  const handleModalClose = () => {
    dispatch(closeSortedPastDueModal());
    dispatch(closePastDueMobileAndTabModal());
+   dispatch(clearRes(myEndpoint.id));
   };
 
   const handleIdInput = (evt) => {
@@ -100,7 +117,7 @@ export const Contacts = () => {
     }
   }
 
-  const handleDescriptionInput = (evt) => {
+  const handleDescriptionInput = evt => {
     setDescription(evt.target.value);
     if (evt.target.value === '') {
       setDescription('%20');
@@ -117,7 +134,13 @@ export const Contacts = () => {
       Notiflix.Notify.warning('Missing Place ID or Description');
     }
     else {
-      dispatch(updatePlaceDetails({ id: placeId, description: description, apiKey: apiKey }));
+      dispatch(
+        updatePlaceDetails({
+          id: placeId,
+          description: description,
+          apiKey: apiKey,
+        })
+      );
     }
   }
 
@@ -174,6 +197,32 @@ export const Contacts = () => {
       dispatch(deleteDogImage({ id: dogImageId, apiKey: apiKey }));
     }
   };
+
+  const handleLatInput = evt => {
+    setPlaceLat(evt.target.value);
+    if (evt.target.value === '') {
+      setPlaceLat('%20');
+    }
+  };
+
+  const handleLongInput = evt => {
+    console.log(placeLong);
+     setPlaceLong(evt.target.value);
+     if (evt.target.value === '') {
+       setPlaceLong('%20');
+     }
+   };
+
+  const handleEightPoint = () => {
+    
+    
+      if (placeLat.trim() === '%20' || placeLong.trim() === '%20') {
+      Notiflix.Notify.warning('Missing Latitude or Longitude');
+    }
+    else {
+      dispatch(fetchNewWeatherData({ lat: placeLat, long: placeLong, apiKey: apiKey }));
+    }
+  }
 
   
 
@@ -362,6 +411,84 @@ export const Contacts = () => {
                     }}
                   >
                     {jsonDataTwo}
+                  </SyntaxHighlighter>
+                </li>
+              </ul>
+            )}
+
+            {myEndpoint.id === '8' && (
+              <ul className={css.detailsWrapper}>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '140px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {`fetch('https://pawpoint-backend.onrender.com/api/places/getNewWeatherApi?lat=${placeLat}&long=${placeLong}}', {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+        "Content-Type": 'application/json'
+      }
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+                  </SyntaxHighlighter>
+                </li>
+                <li className={css.formItem}>
+                  <input
+                    type="text"
+                    className={css.detailsValInput}
+                    required
+                    onChange={handleLatInput}
+                    name="Latitude"
+                    placeholder="Latitude"
+                    style={{ width: '100px' }}
+                  />
+                  <button
+                    className={css.detailsItemButton}
+                    onClick={handleEightPoint}
+                  >
+                    Send
+                  </button>
+                  <input
+                    type="text"
+                    className={css.detailsValInput}
+                    required
+                    onChange={handleLongInput}
+                    name="Longitude"
+                    placeholder="Longitude"
+                    style={{ width: '100px' }}
+                  />
+                </li>
+                <li className={css.detailsItem}>
+                  <SyntaxHighlighter
+                    language="json"
+                    style={oneDark}
+                    wrapLongLines={false}
+                    className={css.codeBlock}
+                    showLineNumbers
+                    customStyle={{
+                      height: '140px',
+                      paddingBottom: '10px',
+                      borderRadius: '8px',
+                      background: '#1f242d',
+                      border: '1px solid #ffff',
+                      fontSize: '13px',
+                    }}
+                  >
+                    {jsonDataEight}
                   </SyntaxHighlighter>
                 </li>
               </ul>
@@ -722,7 +849,7 @@ export const Contacts = () => {
           [css.contactsDetailsShow]: isOpenModal && isDesktop,
         })}
       >
-        {isSelectedSavedPlaceLoading && (
+        {isLoading && (
           <div className={css.backDrop}>
             <ThreeCircles
               visible={true}
@@ -841,6 +968,7 @@ export const Contacts = () => {
                 onChange={handleIdInput}
                 name="Place ID"
                 placeholder="Place ID"
+                
               />
               <button
                 className={css.detailsItemButton}
@@ -855,6 +983,7 @@ export const Contacts = () => {
                 onChange={handleDescriptionInput}
                 name="Place Description"
                 placeholder="Place Description"
+                
               />
             </li>
             <li className={css.detailsItem}>
@@ -874,6 +1003,84 @@ export const Contacts = () => {
                 }}
               >
                 {jsonDataTwo}
+              </SyntaxHighlighter>
+            </li>
+          </ul>
+        )}
+
+        {myEndpoint.id === '8' && (
+          <ul className={css.detailsWrapper}>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="javascript"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '140px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                  fontSize: '13px',
+                }}
+              >
+                {`fetch('https://pawpoint-backend.onrender.com/api/places/getNewWeatherApi?lat=${placeLat}&long=${placeLong}}', {
+      method: "GET",
+      headers: {
+        "accept": "application/json",
+        "x-api-key": ${apiKey},
+        "Content-Type": 'application/json'
+      }
+    })
+  .then(response => response.json())
+  .then(data => console.log(data));`}
+              </SyntaxHighlighter>
+            </li>
+            <li className={css.formItem}>
+              <input
+                type="text"
+                className={css.detailsValInput}
+                required
+                onChange={handleLatInput}
+                name="Latitude"
+                placeholder="Latitude"
+                style={{ width: '100px' }}
+              />
+              <button
+                className={css.detailsItemButton}
+                onClick={handleEightPoint}
+              >
+                Send
+              </button>
+              <input
+                type="text"
+                className={css.detailsValInput}
+                required
+                onChange={handleLongInput}
+                name="Longitude"
+                placeholder="Longitude"
+                style={{ width: '100px' }}
+              />
+            </li>
+            <li className={css.detailsItem}>
+              <SyntaxHighlighter
+                language="json"
+                style={oneDark}
+                wrapLongLines={false}
+                className={css.codeBlock}
+                showLineNumbers
+                customStyle={{
+                  height: '140px',
+                  paddingBottom: '10px',
+                  borderRadius: '8px',
+                  background: '#1f242d',
+                  border: '1px solid #ffff',
+                  fontSize: '13px',
+                }}
+              >
+                {jsonDataEight}
               </SyntaxHighlighter>
             </li>
           </ul>

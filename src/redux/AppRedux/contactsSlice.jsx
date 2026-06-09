@@ -74,6 +74,10 @@ import {
   deleteCatImage,
   deleteDogImage,
   fetchWeatherData,
+  fetchNewWeatherData,
+  savePlaceId,
+  saveDescription,
+  clearRes,
 } from './operations';
 
 import { clearData } from '../AuthRedux/operations';
@@ -152,6 +156,7 @@ const contactsSlice = createSlice({
       endpointFive: [],
       endpointSix: {},
       endpointSeven: {},
+      endpointEight: [],
       selectedSortedAllContact: {
         name: null,
         email: null,
@@ -190,6 +195,13 @@ const contactsSlice = createSlice({
       keyName: null,
       keyId: null,
       keyDate: null,
+      placeId: null,
+      description: null,
+      catImageId: '%20',
+      dogImageId: '%20',
+      placeWeatherId: '%20',
+      placeLat: '%20',
+      placeLong: '%20',
     },
   },
   extraReducers: builder => {
@@ -247,6 +259,33 @@ const contactsSlice = createSlice({
       .addCase(fetchSavedPlaces.rejected, state => {
         state.contacts.isLoading = false;
         state.contacts.error = true;
+      })
+
+      .addCase(clearRes.fulfilled, (state, action) => {
+        if (state.contacts.selectedEndpoint.id === '1') {
+          state.contacts.endpointOne = action.payload;
+        }
+         if (state.contacts.selectedEndpoint.id === '2') {
+           state.contacts.endpointTwo = action.payload;
+         }
+          if (state.contacts.selectedEndpoint.id === '3') {
+            state.contacts.endpointThree = action.payload;
+          }
+          if (state.contacts.selectedEndpoint.id === '4') {
+            state.contacts.endpointFour = action.payload;
+          }
+         if (state.contacts.selectedEndpoint.id === '5') {
+           state.contacts.endpointFive = action.payload;
+         }
+         if (state.contacts.selectedEndpoint.id === '6') {
+           state.contacts.endpointSix = action.payload;
+         }
+         if (state.contacts.selectedEndpoint.id === '7') {
+           state.contacts.endpointSeven = action.payload;
+         }
+         if (state.contacts.selectedEndpoint.id === '8') {
+           state.contacts.endpointEight = action.payload;
+         }
       })
 
       .addCase(updatePlaceDetails.pending, state => {
@@ -327,8 +366,28 @@ const contactsSlice = createSlice({
         state.contacts.error = true;
       })
 
+      .addCase(fetchNewWeatherData.pending, state => {
+        state.contacts.isLoading = true;
+      })
+      .addCase(fetchNewWeatherData.fulfilled, (state, action) => {
+        state.contacts.isLoading = false;
+        state.contacts.error = null;
+        state.contacts.endpointEight = action.payload;
+      })
+      .addCase(fetchNewWeatherData.rejected, state => {
+        state.contacts.isLoading = false;
+        state.contacts.error = true;
+      })
+
+      .addCase(fetchEndpointById.pending, (state, action) => {
+        state.contacts.isLoading = true;
+      })
       .addCase(fetchEndpointById.fulfilled, (state, action) => {
         state.contacts.selectedEndpoint = action.payload;
+        state.contacts.isLoading = false;
+      })
+      .addCase(fetchEndpointById.rejected, (state, action) => {
+        state.contacts.isLoading = false;
       })
 
       .addCase(fetchWeatherKey.pending, state => {
@@ -1335,6 +1394,12 @@ const contactsSlice = createSlice({
       .addCase(createApiKey.rejected, state => {
         state.contacts.isGenKey = false;
         state.contacts.genApiKeyError = true;
+      })
+      .addCase(savePlaceId.fulfilled, (state, action) => {
+        state.contacts.placeId = action.payload;
+      })
+      .addCase(saveDescription.fulfilled, (state, action) => {
+        state.contacts.description = action.payload;
       });
   },
 });

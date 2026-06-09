@@ -6,9 +6,13 @@
     "id":   "2",
     "name": "Update a Place Description"
   },
+    {
+    "id":   "8",
+    "name": "Get Place Weather Condition"
+  },
    {
     "id":   "3",
-    "name": "Get a Place Weather Condition"
+    "name": "Get Saved Place Weather Condition"
   },
    {
     "id":   "4",

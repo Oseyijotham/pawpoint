@@ -10,6 +10,7 @@ import {
   openSortedPastDueModal,
   openPastDueMobileAndTabModal,
   fetchEndpointById,
+  clearRes,
 } from '../../redux/AppRedux/operations';
 import css from './TasksPastDueList.module.css';
 import endpointNames from '../Options/endpoints.json';
@@ -29,10 +30,11 @@ export const TasksPastDueList = ({ children }) => {
   };
 
   const handleModalOpen = (evt) => {
+
     if (evt.target.getAttribute('data-id')) {
 
       const id = evt.currentTarget.getAttribute('data-id');
-      
+      dispatch(clearRes(id));
       dispatch(fetchEndpointById(id));
       dispatch(openSortedPastDueModal());
       dispatch(openPastDueMobileAndTabModal());

@@ -106,4 +106,20 @@ export const selectEndpointSix = state => state.contacts.contacts.endpointSix;
 
 export const selectEndpointSeven = state => state.contacts.contacts.endpointSeven;
 
+export const selectEndpointEight = state => state.contacts.contacts.endpointEight;
+
 export const selectKeyDate = state => state.contacts.contacts.keyDate;
+
+export const selectPlaceId = state => state.contacts.contacts.placeId;
+
+export const selectDescription = state => state.contacts.contacts.description;
+
+export const selectCatImageId = state => state.contacts.contacts.catImageId;
+
+export const selectDogImageId = state => state.contacts.contacts.dogImageId;
+
+export const selectPlaceWeatherId = state => state.contacts.contacts.placeWeatherId;
+
+export const selectPlaceLat = state => state.contacts.contacts.placeLat;
+
+export const selectPlaceLong = state => state.contacts.contacts.placeLong;

@@ -1131,6 +1131,7 @@ export const fetchWeatherKey = createAsyncThunk(
       console.log(res.data);
       return res.data;
     } catch (error) {
+      Notiflix.Loading.remove();
       if (error.response.status === 401) {
         thunkAPI.dispatch(logOut());
         Notiflix.Notify.failure('Invalid Session, login again');
@@ -1201,14 +1202,13 @@ export const fetchEndpointById = createAsyncThunk(
   'endpoints/oneEndPoint',
   async (id, thunkAPI) => {
     try {
-      const myObj = endpointNames.find(endpoint => endpoint.id === id);
-      return myObj;
+     const myObj = endpointNames.find(endpoint => endpoint.id === id);
+     return myObj;
+      /*const res = await axios.get(`/places/getEndpoint/${id}`);
+      
+      return res.data;*/
     } catch (error) {
-      if (error.response.status === 401) {
-        thunkAPI.dispatch(logOut());
-        Notiflix.Notify.failure('Invalid Session, login again');
-      }
-      Notiflix.Notify.failure(error.response.data.error.message);
+      
       return thunkAPI.rejectWithValue(null);
     }
   }
@@ -1269,7 +1269,7 @@ export const updatePlaceDetails = createAsyncThunk(
       Notiflix.Loading.remove();
       return data;
     } catch (error) {
-      Notiflix.Notify.failure(error.response.data.error.message);
+      
       Notiflix.Loading.remove();
       return thunkAPI.rejectWithValue(null);
     }
@@ -1299,7 +1299,7 @@ export const fetchSavedCatPics = createAsyncThunk(
       Notiflix.Loading.remove();
       return data;
     } catch (error) {
-      Notiflix.Notify.failure(error.response.data.error.message);
+      
       Notiflix.Loading.remove();
       return thunkAPI.rejectWithValue(null);
     }
@@ -1329,7 +1329,7 @@ export const fetchSavedDogPics = createAsyncThunk(
       Notiflix.Loading.remove();
       return data;
     } catch (error) {
-      Notiflix.Notify.failure(error.response.data.error.message);
+      
       Notiflix.Loading.remove();
       return thunkAPI.rejectWithValue(null);
     }
@@ -1359,7 +1359,7 @@ export const deleteCatImage = createAsyncThunk(
       Notiflix.Loading.remove();
       return data;
     } catch (error) {
-      Notiflix.Notify.failure(error.response.data.error.message);
+      
       Notiflix.Loading.remove();
       return thunkAPI.rejectWithValue(null);
     }
@@ -1389,7 +1389,7 @@ export const deleteDogImage = createAsyncThunk(
       Notiflix.Loading.remove();
       return data;
     } catch (error) {
-      Notiflix.Notify.failure(error.response.data.error.message);
+      
       Notiflix.Loading.remove();
       return thunkAPI.rejectWithValue(null);
     }
@@ -1400,31 +1400,101 @@ export const fetchWeatherData = createAsyncThunk(
   'places/fetchWeatherConditionsApi',
   async ({ id, apiKey }, thunkAPI) => {
     try {
-        Notiflix.Loading.pulse('Getting Weather Info...', {
-          svgColor: '#00bfff',
-          fontFamily: 'DM Sans',
-        });
-        const response = await fetch(
-          `https://pawpoint-backend-i96r.onrender.com/api/places/getWeatherApi/${id}`,
-          {
-            method: 'GET',
-            headers: {
-              accept: 'application/json',
-              'x-api-key': apiKey,
-            },
-          }
-        );
-        const data = await response.json();
-        console.log(data);
-        Notiflix.Loading.remove();
-        return data;
+      Notiflix.Loading.pulse('Getting Weather Info...', {
+        svgColor: '#00bfff',
+        fontFamily: 'DM Sans',
+      });
+      const response = await fetch(
+        `https://pawpoint-backend-i96r.onrender.com/api/places/getWeatherApi/${id}`,
+        {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            'x-api-key': apiKey,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      Notiflix.Loading.remove();
+      return data;
     } catch (error) {
-      if (error.response.status === 401) {
-        thunkAPI.dispatch(logOut());
-        Notiflix.Notify.failure('Invalid Session, login again');
-      }
-      Notiflix.Notify.failure(error.response.data.error.message);
+      Notiflix.Loading.remove();
       return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
+export const fetchNewWeatherData = createAsyncThunk(
+  'places/fetchNewWeatherDataApi',
+  async ({ lat, long, apiKey }, thunkAPI) => {
+    try {
+      Notiflix.Loading.pulse('Getting Weather Info...', {
+        svgColor: '#00bfff',
+        fontFamily: 'DM Sans',
+      });
+      const response = await fetch(
+        `https://pawpoint-backend-i96r.onrender.com/api/places/getNewWeatherApi?lat=${lat}&long=${long}`,
+        {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            'x-api-key': apiKey,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      Notiflix.Loading.remove();
+      return data;
+    } catch (error) {
+      Notiflix.Loading.remove();
+      return thunkAPI.rejectWithValue(null);
+    }
+  }
+);
+
+export const savePlaceId = createAsyncThunk(
+  'placeId/save',
+  async ({ placeId }) => {
+    return placeId;
+  }
+);
+
+export const saveDescription = createAsyncThunk(
+  'description/save',
+  async ({ description }) => {
+    return description;
+  }
+);
+
+
+export const clearRes = createAsyncThunk(
+  'clear/endpointOne',
+  async (myEndpointId) => {
+    if (myEndpointId === '1') {
+      return [];
+    }
+     if (myEndpointId === '2') {
+       return {};
+    }
+     if (myEndpointId === '3') {
+       return [];
+    }
+      if (myEndpointId === '4') {
+        return [];
+    }
+    if (myEndpointId === '5') {
+      return [];
+    }
+     if (myEndpointId === '6') {
+       return {};
+    }
+     if (myEndpointId === '7') {
+       return {};
+    }
+    if (myEndpointId === '8') {
+      return [];
     }
   }
 );
